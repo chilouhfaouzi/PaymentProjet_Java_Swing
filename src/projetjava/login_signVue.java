@@ -18,7 +18,6 @@ public class login_signVue extends javax.swing.JFrame {
      */
     public login_signVue() {
         initComponents();
-        turn_on();
     }
     public void turn_off(){
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -295,6 +294,10 @@ public class login_signVue extends javax.swing.JFrame {
         login_page.setLayout(login_pageLayout);
         login_pageLayout.setHorizontalGroup(
             login_pageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, login_pageLayout.createSequentialGroup()
+                .addGap(0, 440, Short.MAX_VALUE)
+                .addComponent(p_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(531, 531, 531))
             .addGroup(login_pageLayout.createSequentialGroup()
                 .addGroup(login_pageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(login_pageLayout.createSequentialGroup()
@@ -304,17 +307,11 @@ public class login_signVue extends javax.swing.JFrame {
                         .addGap(310, 310, 310)
                         .addGroup(login_pageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(p_username, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(p_password, javax.swing.GroupLayout.DEFAULT_SIZE, 469, Short.MAX_VALUE))))
+                            .addComponent(p_password, javax.swing.GroupLayout.DEFAULT_SIZE, 469, Short.MAX_VALUE)))
+                    .addGroup(login_pageLayout.createSequentialGroup()
+                        .addGap(427, 427, 427)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, login_pageLayout.createSequentialGroup()
-                .addGap(0, 440, Short.MAX_VALUE)
-                .addGroup(login_pageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, login_pageLayout.createSequentialGroup()
-                        .addComponent(p_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(531, 531, 531))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, login_pageLayout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(452, 452, 452))))
         );
         login_pageLayout.setVerticalGroup(
             login_pageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -326,7 +323,7 @@ public class login_signVue extends javax.swing.JFrame {
                 .addComponent(p_password, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(p_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -604,7 +601,7 @@ public class login_signVue extends javax.swing.JFrame {
                 .addComponent(p_adresse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(54, 54, 54)
                 .addComponent(sign_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
