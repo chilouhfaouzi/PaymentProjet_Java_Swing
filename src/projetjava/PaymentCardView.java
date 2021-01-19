@@ -31,6 +31,20 @@ public class PaymentCardView extends javax.swing.JFrame {
     public PaymentCardView() {
         initComponents();
     }
+    public void turn_off(){
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                setVisible(false);
+            }
+        });
+    }
+    public void turn_on() {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                setVisible(true);
+            }
+        });
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -60,7 +74,7 @@ public class PaymentCardView extends javax.swing.JFrame {
         
         payer.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		if(card_number.getText().equals("Numero De Payment De Carte") || cvv.getText().equals("CVV")|| ref_facture.getText().equals("Référence de Facture")
+        		if(card_number.getText().equals("Numero De Payment De Carte") || cvv.getText().equals("CVV")|| ref_facture.getText().equals("Rï¿½fï¿½rence de Facture")
             	   || date.getText().equals("mm-yyyy")) {
         	        card_number.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(187,33,36)));
         	        date.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(187,33,36)));
@@ -180,7 +194,7 @@ public class PaymentCardView extends javax.swing.JFrame {
 
         ref_facture.setFont(new java.awt.Font("Open Sans", 0, 16)); // NOI18N
         ref_facture.setForeground(new java.awt.Color(149, 165, 166));
-        ref_facture.setText("Référence de Facture");
+        ref_facture.setText("Rï¿½fï¿½rence de Facture");
         ref_facture.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
         ref_facture.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -361,7 +375,7 @@ public class PaymentCardView extends javax.swing.JFrame {
 
     private void ref_factureFocusGained(java.awt.event.FocusEvent evt) {                                        
         // TODO add your handling code here:
-        if(ref_facture.getText().equals("Référence de Facture")){
+        if(ref_facture.getText().equals("Rï¿½fï¿½rence de Facture")){
             ref_facture.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(9,132, 227), 1, true));
 
             ref_facture.setText("");
@@ -375,11 +389,11 @@ public class PaymentCardView extends javax.swing.JFrame {
          ref_facture.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
          if(ref_facture.getText().equals("")){
-            ref_facture.setText("Référence de Facture");
+            ref_facture.setText("Rï¿½fï¿½rence de Facture");
             ref_facture.setForeground(new java.awt.Color(149,165,166));
         }  
          
-         if(!ref_facture.getText().equals("") && !ref_facture.getText().equals("Référence de Facture") )
+         if(!ref_facture.getText().equals("") && !ref_facture.getText().equals("Rï¿½fï¿½rence de Facture") )
         {
         	final String  regex = "[0-9]+"; 
  		     Pattern pattern = Pattern.compile(regex);
@@ -387,7 +401,7 @@ public class PaymentCardView extends javax.swing.JFrame {
             if(!matcher.matches()) {
             	ref_facture.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(187,33,36)));
 
-    			JOptionPane.showMessageDialog(jPanel1,"Référence invalide !","Error",JOptionPane.INFORMATION_MESSAGE);
+    			JOptionPane.showMessageDialog(jPanel1,"Rï¿½fï¿½rence invalide !","Error",JOptionPane.INFORMATION_MESSAGE);
 
             }
         }

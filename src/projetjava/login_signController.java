@@ -43,8 +43,8 @@ public class login_signController implements ActionListener {
                 classNotFoundException.printStackTrace();
             }
             if (test) {
-                testFrame testFr = new testFrame();
-                testFr.my_run();
+                Menu_Form menu = new Menu_Form();
+                menu.turn_on();
                 lgvue.turn_off();
             } else {
                 JOptionPane.showMessageDialog(getLgvue(),"Oopps ! Email ou mot de passe non valide !");

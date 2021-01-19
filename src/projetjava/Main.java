@@ -14,7 +14,7 @@ public class Main {
     public static void main(String[] args) {
         WelcomeVue welcVue = new WelcomeVue();
         login_signVue lg = new login_signVue();
-        payCard paycard = new payCard();
+        PaymentCardView paycard = new  PaymentCardView();
         welcVue.turn_on();
         WelcomeController welcCont = new WelcomeController(welcVue,lg,paycard);
         welcVue.getBank_btn().addActionListener(welcCont);

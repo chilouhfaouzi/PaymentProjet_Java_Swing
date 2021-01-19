@@ -12,10 +12,10 @@ public class WelcomeController implements ActionListener  {
 
     WelcomeVue welcomeVue = new WelcomeVue();
     login_signVue lgv = new login_signVue();
-    payCard payCardvue = new payCard();
+    PaymentCardView payCardvue = new PaymentCardView();
 
 
-    public WelcomeController(WelcomeVue welcomeVue, login_signVue lgv, payCard payCardvue) {
+    public WelcomeController(WelcomeVue welcomeVue, login_signVue lgv,  PaymentCardView payCardvue) {
         this.welcomeVue = welcomeVue;
         this.lgv = lgv;
         this.payCardvue = payCardvue;
@@ -29,11 +29,11 @@ public class WelcomeController implements ActionListener  {
         this.welcomeVue = welcomeVue;
     }
 
-    public projetjava.payCard getPayCard() {
+    public  PaymentCardView getPayCard() {
         return payCardvue;
     }
 
-    public void setPayCard(projetjava.payCard payCard) {
+    public void setPayCard( PaymentCardView payCard) {
         this.payCardvue = payCard;
     }
 

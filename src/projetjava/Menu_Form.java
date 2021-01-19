@@ -18,7 +18,20 @@ public class Menu_Form extends javax.swing.JFrame {
         initComponents();
        
     }
-
+    public void turn_off(){
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                setVisible(false);
+            }
+        });
+    }
+    public void turn_on() {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                setVisible(true);
+            }
+        });
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
