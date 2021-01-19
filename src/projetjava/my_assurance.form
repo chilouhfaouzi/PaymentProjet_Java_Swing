@@ -104,7 +104,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="d6" green="67" red="38" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Paiement de la facture de l&apos;eau et d&apos;electricite"/>
+                <Property name="text" type="java.lang.String" value="Paiement de la facture d&apos;assurance"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -263,7 +263,7 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/projetjava/water.png"/>
+                  <Image iconType="3" name="/projetjava/protection.png"/>
                 </Property>
               </Properties>
             </Component>

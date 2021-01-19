@@ -15,14 +15,12 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author hakim
+ * @author faouzi
  */
-public class eau_electricite extends javax.swing.JFrame {
+public class my_assurance extends javax.swing.JFrame {
 
-    /**
-     * Creates new form eau_electricite
-     */
-    public eau_electricite() {
+   
+    public my_assurance() {
         initComponents();
         
         
@@ -58,7 +56,7 @@ public class eau_electricite extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Open Sans", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(56, 103, 214));
-        jLabel1.setText("Paiement de la facture de l'eau et d'electricite");
+        jLabel1.setText("Paiement de la facture d'assurance");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -142,7 +140,7 @@ public class eau_electricite extends javax.swing.JFrame {
         );
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetjava/water.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetjava/protection.png"))); // NOI18N
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetjava/one.png"))); // NOI18N
@@ -278,9 +276,9 @@ public class eau_electricite extends javax.swing.JFrame {
             
             
         }   catch (SQLException ex) { 
-                Logger.getLogger(eau_electricite.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(my_assurance.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {
-                Logger.getLogger(eau_electricite.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(my_assurance.class.getName()).log(Level.SEVERE, null, ex);
             } 
             
         }
@@ -304,20 +302,21 @@ public class eau_electricite extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(eau_electricite.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(my_assurance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(eau_electricite.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(my_assurance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(eau_electricite.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(my_assurance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(eau_electricite.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(my_assurance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new eau_electricite().setVisible(true);
+                new my_assurance().setVisible(true);
             }
         });
     }
