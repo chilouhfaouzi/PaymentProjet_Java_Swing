@@ -9,14 +9,21 @@ public class login_signModal {
     private String email;
     private String password;
     private String phone;
-    private String cin;
+	private String cin;
     private String datenaissance;
     private String adresse;
     private int token=0;
     // card number
     private String card_number;
+    private float solde ;
 
+    public float getSolde() {
+		return solde;
+	}
 
+	public void setSolde(float solde) {
+		this.solde = solde;
+	}
     public String getCard_number() {
 		return card_number;
 	}
@@ -181,6 +188,7 @@ public class login_signModal {
                  setPhone(rs.getString("phone"));
                  setEmail(rs.getString("Email"));
                  setFullname(rs.getString("fullname"));
+                 setId(rs.getInt("id"));
                  // set TOKEN WITH RANDOM VALUE
                  token=new Random().nextInt(10001);
                  
@@ -222,6 +230,7 @@ public class login_signModal {
             	 // retrieve id user 
                  id = rs.getInt("user_id");
                  card_number =rs.getString("card_number");
+                 solde=rs.getFloat("solde");
 
                  return true;
              }
@@ -238,6 +247,38 @@ public class login_signModal {
     	 
     	 
      }
+     
+     /********************************* 
+      * update  the sold
+      * 
+      * @author Amine NAFID
+      * *******************************/
+     
+     public boolean updateSolde(int id_user,float price_fact) throws ClassNotFoundException
+ 	{
+ 		try(Connection con = ConnectionDB.my_connect()) {
+ 			
+          	System.out.print("connecting succefully");
+             PreparedStatement sql = con.prepareStatement("UPDATE card set solde = ? WHERE user_id = ? ");
+             sql.setFloat(1,solde-price_fact);
+             sql.setInt(2,id_user);
+            
+            if( sql.executeUpdate()>0)
+            {   
+         	   System.out.print("updating succefully");
+
+         	   return true;
+            }else {
+             return false;}
+             
+            
+         } catch (SQLException e) {
+         	 System.out.println("An error occurred. Maybe user/password is invalid");
+              e.printStackTrace();
+         }
+        
+ 		return false;
+ 	}
     
    
     

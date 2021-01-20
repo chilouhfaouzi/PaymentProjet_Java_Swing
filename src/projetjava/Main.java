@@ -12,7 +12,6 @@ public class Main {
 
 
     public static void main(String[] args) {
-        
         WelcomeVue welcVue = new WelcomeVue();
         login_signVue lg = new login_signVue();
         PaymentCardView paycard = new  PaymentCardView();
@@ -24,8 +23,8 @@ public class Main {
         login_signController lgc = new login_signController(lg, lgm);
         lg.getLogin_b().addActionListener(lgc);
         lg.getSign_btn().addActionListener(lgc);
-        
-        
+
+
     }
 
 }

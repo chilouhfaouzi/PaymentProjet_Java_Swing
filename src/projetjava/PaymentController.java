@@ -14,6 +14,7 @@ public class PaymentController {
 
     static login_signModal lgmodal;
     static FactureModel  FcModel;
+    //static CompteModel CpModel;
 
     
     public PaymentController(PaymentCardView card_view ) {
@@ -33,6 +34,7 @@ public class PaymentController {
 		super();
 		this.facture_view = facture_view;
 		FcModel =new FactureModel();
+		
 	}
     
    
@@ -79,6 +81,11 @@ public class PaymentController {
     	return lgmodal.getEmail();
     }
     
+    public Float retrieveSolde() {
+     	 
+    	return lgmodal.getSolde();
+    }
+    
     
     public String retrieveFullname() {
      	 
@@ -88,6 +95,11 @@ public class PaymentController {
     public String retrievePrice() {
     	 
     	return FactureModel.getPrice() ;
+    }
+    
+    public int retrieveId() {
+   	 
+    	return lgmodal.getId() ;
     }
     
     
@@ -110,14 +122,19 @@ public class PaymentController {
 
     	}else if(!FcModel.checkBillReference(ref)) {
     		
-    		card_view.setErrorMessage("Référence De facture n'est pas valide !.");
+    		card_view.setErrorMessage("Rï¿½fï¿½rence De facture n'est pas valide !.");
+
+    	}else if(Float.parseFloat(FactureModel.getPrice())>lgmodal.getSolde()) {
+    		
+    		card_view.setErrorMessage("Votre Solde est inssifusant !");
 
     	}else {
     		
     		if(lgmodal.checkphone(lgmodal.getId())) {
     			Date date=new Date();
+    			// set date of payment
     			FactureModel.setDate_pyment(date.toString());
-
+                //generate the Verification window
     			VerificationPayment view =new VerificationPayment();
                 view.setVisible(true);
     		}else {
@@ -131,10 +148,11 @@ public class PaymentController {
     /*************************************
      * 
      * Verify token  
+     * @throws ClassNotFoundException 
      * 
      *************************************/
     
-    public boolean verifyToken(int  token)
+    public boolean verifyToken(int  token) throws ClassNotFoundException
     {
     	if(lgmodal.getToken()!=token )
     	{
@@ -142,11 +160,13 @@ public class PaymentController {
     		return false;
     		
     	}else {
+
     		verifiy_view.setSuccesMessage("The Payment has been done succesfully");
+
     		new FactureView().setVisible(true);
-    		
+    		return true;
+    		    		
     	}
-      return false;
     }
     
     /*************************************************

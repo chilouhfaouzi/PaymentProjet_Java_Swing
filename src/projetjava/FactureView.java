@@ -117,17 +117,17 @@ public class FactureView extends javax.swing.JFrame {
         date.setText(""+PaymentController.retrieveDatePyment());
 
         code_autorisation1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        code_autorisation1.setText(" Méthode De Paiement :");
+        code_autorisation1.setText(" Mï¿½thode De Paiement :");
 
         code_autorisation2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        code_autorisation2.setText(" N° de Carte Paeiment :");
+        code_autorisation2.setText(" NÂ° de Carte Paeiment :");
         /*
          * Method paiement
          ********************/
         method_pyment.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         method_pyment.setText("VISA");
         /*
-         * N° de Carte Paeiment :
+         * Nï¿½ de Carte Paeiment :
          ********************/
         carte_payment.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         carte_payment.setText(""+controller.retrieveCardNumber());
@@ -197,10 +197,10 @@ public class FactureView extends javax.swing.JFrame {
         name.setText(controller.retrieveFullname());
 
         code_autorisation4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        code_autorisation4.setText(" N° Tel :");
+        code_autorisation4.setText(" Nï¿½ Tel :");
 
         code_autorisation5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        code_autorisation5.setText(" N° de Carte Paeiment :");
+        code_autorisation5.setText(" Nï¿½ de Carte Paeiment :");
 
         tel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         tel.setText(controller.retrievePhone());
@@ -265,19 +265,19 @@ public class FactureView extends javax.swing.JFrame {
         jLabel7.setOpaque(true);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel8.setText(" N° De Facture :");
+        jLabel8.setText(" Nï¿½ De Facture :");
 
         num_pay.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         num_pay.setText(""+controller.retrieveRecuPyment());
 
         code_autorisation6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        code_autorisation6.setText(" N° De Recu De Paiement :");
+        code_autorisation6.setText(" Nï¿½ De Recu De Paiement :");
 
         num_facture.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         num_facture.setText(""+controller.retrieveRefFacture());
 
         code_autorisation8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        code_autorisation8.setText(" N° de Carte Paeiment :");
+        code_autorisation8.setText(" Nï¿½ de Carte Paeiment :");
 
         method_pyment5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         method_pyment5.setText(""+controller.retrieveCardNumber());
@@ -463,7 +463,7 @@ public class FactureView extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(153, 153, 153));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("votre paiement a été accepté");
+        jLabel2.setText("Votre Paiement a Ã©tÃ© acceptÃ©");
         
         lblNewLabel = new JLabel("");
         lblNewLabel.setIcon(new ImageIcon("C:\\Users\\amine\\Desktop\\success-icon.png"));

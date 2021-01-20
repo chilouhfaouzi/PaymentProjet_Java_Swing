@@ -211,11 +211,6 @@ public class WelcomeVue extends javax.swing.JFrame {
         cart_btn.setContentAreaFilled(false);
         cart_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cart_btn.setFocusPainted(false);
-        cart_btn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cart_btnActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout pay_cardLayout = new javax.swing.GroupLayout(pay_card);
         pay_card.setLayout(pay_cardLayout);
@@ -300,10 +295,6 @@ public class WelcomeVue extends javax.swing.JFrame {
     private void bank_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bank_btnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bank_btnActionPerformed
-
-    private void cart_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cart_btnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cart_btnActionPerformed
 
     /**
      * @param args the command line arguments
