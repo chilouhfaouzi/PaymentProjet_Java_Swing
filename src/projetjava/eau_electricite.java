@@ -10,6 +10,7 @@ import javax.swing.border.Border;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -22,10 +23,25 @@ public class eau_electricite extends javax.swing.JFrame {
     /**
      * Creates new form eau_electricite
      */
+
     public eau_electricite() {
         initComponents();
         
         
+    }
+    public void turn_off(){
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                setVisible(false);
+            }
+        });
+    }
+    public void turn_on() {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                setVisible(true);
+            }
+        });
     }
 
     /**
@@ -40,6 +56,7 @@ public class eau_electricite extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -60,21 +77,36 @@ public class eau_electricite extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(56, 103, 214));
         jLabel1.setText("Paiement de la facture de l'eau et d'electricite");
 
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetjava/back.png"))); // NOI18N
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(98, 98, 98)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(128, 128, 128))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jSeparator1.setBackground(new java.awt.Color(112, 161, 255));
@@ -260,13 +292,11 @@ public class eau_electricite extends javax.swing.JFrame {
             
             if(rs.next())
             {
-                //show a new form
-                Menu_Form form = new Menu_Form();
-                form.setVisible(true);
-                form.pack();
-                form.setLocationRelativeTo(null);
-                // close the current form(login form)
-                this.dispose();
+                Date date=new Date();
+                FactureModel.setDate_pyment(date.toString());
+
+                VerificationPayment view =new VerificationPayment();
+                view.setVisible(true);
                 
             }
             
@@ -285,6 +315,12 @@ public class eau_electricite extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_valide_btnActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Menu_Form menu =new Menu_Form();
+        menu.turn_on();
+        this.turn_off();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
    
     /**
@@ -323,6 +359,7 @@ public class eau_electricite extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

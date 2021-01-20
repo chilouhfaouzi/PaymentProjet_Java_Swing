@@ -74,7 +74,7 @@ public class PaymentCardView extends javax.swing.JFrame {
         
         payer.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		if(card_number.getText().equals("Numero De Payment De Carte") || cvv.getText().equals("CVV")|| ref_facture.getText().equals("R�f�rence de Facture")
+        		if(card_number.getText().equals("Numero De Payment De Carte") || cvv.getText().equals("CVV")|| ref_facture.getText().equals("Reference de Facture")
             	   || date.getText().equals("mm-yyyy")) {
         	        card_number.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(187,33,36)));
         	        date.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(187,33,36)));

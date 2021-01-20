@@ -51,6 +51,7 @@ public class login_signVue extends javax.swing.JFrame {
         h_sign = new javax.swing.JPanel();
         l_sign = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        jButton1 = new javax.swing.JButton();
         p_container = new javax.swing.JPanel();
         login_page = new javax.swing.JPanel();
         login_l = new javax.swing.JLabel();
@@ -167,28 +168,41 @@ public class login_signVue extends javax.swing.JFrame {
         jSeparator1.setAlignmentX(1.0F);
         jSeparator1.setAlignmentY(1.0F);
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetjava/back.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout p_switcherLayout = new javax.swing.GroupLayout(p_switcher);
         p_switcher.setLayout(p_switcherLayout);
         p_switcherLayout.setHorizontalGroup(
             p_switcherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(p_switcherLayout.createSequentialGroup()
-                .addGap(333, 333, 333)
+                .addContainerGap()
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(238, 238, 238)
                 .addComponent(h_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addComponent(h_sign, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
         p_switcherLayout.setVerticalGroup(
             p_switcherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(p_switcherLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 11, Short.MAX_VALUE)
                 .addGroup(p_switcherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(h_login, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p_switcherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(h_sign, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p_switcherLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
 
         container.add(p_switcher, java.awt.BorderLayout.PAGE_START);
@@ -266,7 +280,7 @@ public class login_signVue extends javax.swing.JFrame {
         login_b.setFont(new java.awt.Font("Open Sans", 0, 18)); // NOI18N
         login_b.setForeground(new java.awt.Color(255, 255, 255));
         login_b.setText("Login");
-        login_b.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        login_b.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         login_b.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 login_bActionPerformed(evt);
@@ -323,7 +337,7 @@ public class login_signVue extends javax.swing.JFrame {
                 .addComponent(p_password, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(p_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -336,7 +350,7 @@ public class login_signVue extends javax.swing.JFrame {
         sign_btn.setFont(new java.awt.Font("Open Sans", 0, 18)); // NOI18N
         sign_btn.setForeground(new java.awt.Color(255, 255, 255));
         sign_btn.setText("Registre");
-        sign_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        sign_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         p_nom.setFont(p_nom.getFont());
 
@@ -601,7 +615,7 @@ public class login_signVue extends javax.swing.JFrame {
                 .addComponent(p_adresse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(54, 54, 54)
                 .addComponent(sign_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -811,6 +825,16 @@ public class login_signVue extends javax.swing.JFrame {
             password.setForeground(new java.awt.Color(149,165,166));
         }       }//GEN-LAST:event_passwordFocusLost
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+                // show a new form
+                WelcomeVue form = new WelcomeVue();
+                form.turn_on();
+                this.turn_off();
+                // close the current form(login form)
+               // this.dispose();
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
 
     private void on_click(java.awt.event.MouseEvent evt) {
@@ -875,6 +899,7 @@ public class login_signVue extends javax.swing.JFrame {
     private javax.swing.JLabel err;
     private javax.swing.JPanel h_login;
     private javax.swing.JPanel h_sign;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JSeparator jSeparator1;

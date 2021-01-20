@@ -70,10 +70,10 @@ public class VerificationPayment extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 102, 255));
-        jLabel1.setText("Vérification De Payment");
+        jLabel1.setText("VÃ©rification De Payment");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setText("Un  Code a été envoyé a votre Numero de tel :");
+        jLabel2.setText("Un  Code a Ã©tÃ© envoyÃ© a votre Numero de tel :");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         
@@ -95,7 +95,7 @@ public class VerificationPayment extends javax.swing.JFrame {
         btn_verify.setBackground(new java.awt.Color(41, 128, 185));
         btn_verify.setFont(new java.awt.Font("Open Sans", 0, 18)); // NOI18N
         btn_verify.setForeground(new java.awt.Color(255, 255, 255));
-        btn_verify.setText("Vérifier");
+        btn_verify.setText("VÃ©rifier");
         btn_verify.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         
         JLabel lblNewLabel = new JLabel("BoukiPay \u00C2\u00A9 Copyright 2021");
@@ -191,10 +191,10 @@ public class VerificationPayment extends javax.swing.JFrame {
     private javax.swing.JTextField verification;
     private final Action action = new SwingAction();
 	private class SwingAction extends AbstractAction {
-		public SwingAction() {
+	/*	public SwingAction() {
 			putValue(NAME, "SwingAction");
 			putValue(SHORT_DESCRIPTION, "Some short description");
-		}
+		}*/
 		public void actionPerformed(ActionEvent e) {
 		}
 	}
