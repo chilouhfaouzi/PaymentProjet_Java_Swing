@@ -108,7 +108,12 @@ public class FactureView extends javax.swing.JFrame {
         jLabel3.setText(" Date De Paiement :");
 
         code_autori.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        code_autori.setText(""+controller.retrieveToken());
+        if(controller.retrieveToken()!=0){
+            code_autori.setText(""+controller.retrieveToken());
+
+        }else{
+            code_autori.setText(""+login_signModal.tokenn);
+        }
 
         code_autorisation.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         code_autorisation.setText(" Code d'autorisation :");
@@ -188,13 +193,23 @@ public class FactureView extends javax.swing.JFrame {
         jLabel4.setText(" Nom :");
 
         email.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        email.setText(controller.retrieveEmail());
+        if(controller.retrieveEmail()!=null){
+            email.setText(controller.retrieveEmail());
+        }else{
+            email.setText(my_Session.Email);
+        }
+
 
         code_autorisation3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         code_autorisation3.setText(" Email :");
 
         name.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         name.setText(controller.retrieveFullname());
+        if(controller.retrieveFullname()!=null){
+            name.setText(controller.retrieveFullname());
+        }else{
+            name.setText(my_Session.fullname);
+        }
 
         code_autorisation4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         code_autorisation4.setText(" N� Tel :");
@@ -203,8 +218,11 @@ public class FactureView extends javax.swing.JFrame {
         code_autorisation5.setText(" N� de Carte Paeiment :");
 
         tel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        tel.setText(controller.retrievePhone());
-
+        if(controller.retrievePhone()!=null){
+            tel.setText(controller.retrievePhone());
+        }else{
+            tel.setText(my_Session.phoneStatic);
+        }
         method_pyment3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         method_pyment3.setText("");
 

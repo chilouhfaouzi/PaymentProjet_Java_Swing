@@ -128,6 +128,7 @@ public class login_signModal {
                         my_Session.setId(id);
                         String email = res.getString("Email");
                         my_Session.setEmail(email);
+                        my_Session.fullname = res.getString("fullname");
                         setPhone(res.getString("phone"));
                         phoneStatic = res.getString("phone");
                         my_Session.phoneStatic =  res.getString("phone");
@@ -214,7 +215,7 @@ public class login_signModal {
     	 
      }
      public static void genereToken(){
-         tokenn=new Random().nextInt(10001);
+         tokenn=new Random().nextInt(9999) +1000;
 
          System.out.print(tokenn);
      }

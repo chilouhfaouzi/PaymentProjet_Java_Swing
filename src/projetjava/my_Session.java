@@ -5,6 +5,7 @@ public  class  my_Session {
     private static String id ;
     private static String username ;
     public static String Email ;
+    public static String fullname ;
     public static String phoneStatic;
 
 

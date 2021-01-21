@@ -296,7 +296,10 @@ public class eau_electricite extends javax.swing.JFrame {
             {
                 Date date=new Date();
                 FactureModel.setDate_pyment(date.toString());
+                FactureModel.setNum_facture(nFacture);
+                FactureModel.setPrice(rs.getString("prix"));
                login_signModal.genereToken();
+
                 VerificationPayment view =new VerificationPayment();
                 view.setVisible(true);
                 
