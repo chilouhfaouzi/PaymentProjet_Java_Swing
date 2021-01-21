@@ -28,13 +28,14 @@ public class PaymentController {
     public PaymentController(VerificationPayment verifiy_view ) {
 		super();
 		this. verifiy_view = verifiy_view;
+
 	}
     
     public PaymentController(FactureView facture_view ) {
 		super();
 		this.facture_view = facture_view;
 		FcModel =new FactureModel();
-		
+
 	}
     
    
@@ -147,14 +148,14 @@ public class PaymentController {
     
     /*************************************
      * 
-     * Verify token  
+     * Verify token
      * @throws ClassNotFoundException 
      * 
      *************************************/
     
     public boolean verifyToken(int  token) throws ClassNotFoundException
     {
-    	if(lgmodal.getToken()!=token )
+    	if(lgmodal.getToken()!=token && login_signModal.tokenn!=token )
     	{
     		verifiy_view.setErrorMessage("Invalide Code");	
     		return false;

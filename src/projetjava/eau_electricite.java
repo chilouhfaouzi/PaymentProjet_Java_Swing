@@ -24,6 +24,8 @@ public class eau_electricite extends javax.swing.JFrame {
      * Creates new form eau_electricite
      */
 
+
+
     public eau_electricite() {
         initComponents();
         
@@ -294,7 +296,7 @@ public class eau_electricite extends javax.swing.JFrame {
             {
                 Date date=new Date();
                 FactureModel.setDate_pyment(date.toString());
-
+               login_signModal.genereToken();
                 VerificationPayment view =new VerificationPayment();
                 view.setVisible(true);
                 

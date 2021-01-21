@@ -8,11 +8,13 @@ public class login_signModal {
     private String fullname;
     private String email;
     private String password;
-    private String phone;
+    private String phone = null;
+    public static String phoneStatic;
 	private String cin;
     private String datenaissance;
     private String adresse;
-    private int token=0;
+    private  int token=0;
+    public static  int tokenn=0;
     // card number
     private String card_number;
     private float solde ;
@@ -126,7 +128,9 @@ public class login_signModal {
                         my_Session.setId(id);
                         String email = res.getString("Email");
                         my_Session.setEmail(email);
-
+                        setPhone(res.getString("phone"));
+                        phoneStatic = res.getString("phone");
+                        my_Session.phoneStatic =  res.getString("phone");
                         System.out.println("id: " + id + " , Email: " + my_Session.getEmail() + ", " + count);
                     }
                     return true;
@@ -186,6 +190,7 @@ public class login_signModal {
              if(rs.next()){
             	 
                  setPhone(rs.getString("phone"));
+                 System.out.println(this.phone);
                  setEmail(rs.getString("Email"));
                  setFullname(rs.getString("fullname"));
                  setId(rs.getInt("id"));
@@ -208,7 +213,11 @@ public class login_signModal {
 		return false;
     	 
      }
-     
+     public static void genereToken(){
+         tokenn=new Random().nextInt(10001);
+
+         System.out.print(tokenn);
+     }
      /********************************* 
       * check  card's informations .
       * 

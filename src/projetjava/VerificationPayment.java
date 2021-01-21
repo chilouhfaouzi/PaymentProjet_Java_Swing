@@ -103,8 +103,17 @@ public class VerificationPayment extends javax.swing.JFrame {
         
         /******************
          * set Phone field 
-         ******************/ 
-        jLabel3.setText(""+controller.retrievePhone());
+         ******************/
+        if(controller.retrievePhone()!=null) {
+            jLabel3.setText("" + controller.retrievePhone());
+            System.out.println("retr "+controller.retrievePhone());
+        }else{
+            jLabel3.setText("" + my_Session.phoneStatic);
+            System.out.println("stats "+my_Session.phoneStatic);
+
+
+
+        }
 
         verification.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
         verification.setForeground(new java.awt.Color(149, 165, 166));
