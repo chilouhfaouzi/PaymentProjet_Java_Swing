@@ -124,7 +124,7 @@ public class login_signModal {
                 if (count > 0) {
                     my_Session.setState(1);
                     while (res.next()) {
-                        String id = res.getString("id");
+                        int id = res.getInt("id");
                         my_Session.setId(id);
                         String email = res.getString("Email");
                         my_Session.setEmail(email);
@@ -132,7 +132,7 @@ public class login_signModal {
                         setPhone(res.getString("phone"));
                         phoneStatic = res.getString("phone");
                         my_Session.phoneStatic =  res.getString("phone");
-                        System.out.println("id: " + id + " , Email: " + my_Session.getEmail() + ", " + count);
+
                     }
                     return true;
 
@@ -163,13 +163,15 @@ public class login_signModal {
         if (row > 0) {
             my_Session.setEmail(email);
             my_Session.setState(1);
+            my_Session.setId(this.id);
+            my_Session.fullname = fullname;
+            phoneStatic = phone;
+            my_Session.phoneStatic = phone;
             return true;
         } else {
             System.out.println("No user Added !");
             return false;
         }
-
-
     }
     
     

@@ -106,10 +106,8 @@ public class VerificationPayment extends javax.swing.JFrame {
          ******************/
         if(controller.retrievePhone()!=null) {
             jLabel3.setText("" + controller.retrievePhone());
-            System.out.println("retr "+controller.retrievePhone());
         }else{
             jLabel3.setText("" + my_Session.phoneStatic);
-            System.out.println("stats "+my_Session.phoneStatic);
 
 
 

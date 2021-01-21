@@ -163,8 +163,13 @@ public class PaymentController {
     	}else {
 
     		verifiy_view.setSuccesMessage("The Payment has been done succesfully");
+    		if(my_Session.recharge==0){
+				new FactureView().setVisible(true);
+			}
+    		else{
+    			new RechargeFactureView().setVisible(true);
+			}
 
-    		new FactureView().setVisible(true);
     		return true;
     		    		
     	}

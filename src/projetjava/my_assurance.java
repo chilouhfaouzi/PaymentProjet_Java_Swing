@@ -10,6 +10,7 @@ import javax.swing.border.Border;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -284,13 +285,14 @@ public class my_assurance extends javax.swing.JFrame {
             
             if(rs.next())
             {
-                //show a new form
-                Menu_Form form = new Menu_Form();
-                form.setVisible(true);
-                form.pack();
-                form.setLocationRelativeTo(null);
-                // close the current form(login form)
-                this.dispose();
+                Date date=new Date();
+                FactureModel.setDate_pyment(date.toString());
+                FactureModel.setNum_facture(nFacture);
+                FactureModel.setPrice(rs.getString("prix"));
+                login_signModal.genereToken();
+
+                VerificationPayment view =new VerificationPayment();
+                view.setVisible(true);
                 
             }
             
