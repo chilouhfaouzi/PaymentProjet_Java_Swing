@@ -198,7 +198,7 @@ public class login_signModal {
                  setFullname(rs.getString("fullname"));
                  setId(rs.getInt("id"));
                  // set TOKEN WITH RANDOM VALUE
-                 token=new Random().nextInt(9999) +1000;
+                 token=new Random().nextInt(9999 -1000) +1000;
                  
                  System.out.print(token);
                  
@@ -217,7 +217,7 @@ public class login_signModal {
     	 
      }
      public static void genereToken(){
-         tokenn=new Random().nextInt(9999) +1000;
+         tokenn=new Random().nextInt(9999 -1000) +1000;
 
          System.out.print(tokenn);
      }
@@ -348,7 +348,7 @@ public class login_signModal {
              {
             	 return false;
              }else {
-   			  token=new Random().nextInt(9999)  +1000;
+   			  token=new Random().nextInt(9999 -1000) +1000;
    			  System.out.println("tkon :"+token);
 
             	 return true;

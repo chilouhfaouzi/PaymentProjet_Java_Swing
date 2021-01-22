@@ -16,6 +16,8 @@ import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
 import java.util.Random;
 import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
+import java.awt.Dimension;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -80,6 +82,8 @@ public class FactureView extends javax.swing.JFrame {
         code_autorisation8 = new javax.swing.JLabel();
         method_pyment5 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jLabel9.setHorizontalAlignment(SwingConstants.CENTER);
+        jLabel9.setFont(new Font("Open Sans", Font.PLAIN, 11));
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -137,21 +141,23 @@ public class FactureView extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4Layout.setHorizontalGroup(
         	jPanel4Layout.createParallelGroup(Alignment.LEADING)
-        		.addComponent(jLabel5, GroupLayout.DEFAULT_SIZE, 414, Short.MAX_VALUE)
+        		.addComponent(jLabel5, GroupLayout.DEFAULT_SIZE, 469, Short.MAX_VALUE)
         		.addGroup(jPanel4Layout.createSequentialGroup()
         			.addContainerGap()
         			.addGroup(jPanel4Layout.createParallelGroup(Alignment.LEADING)
         				.addComponent(jLabel3, GroupLayout.PREFERRED_SIZE, 130, GroupLayout.PREFERRED_SIZE)
         				.addComponent(code_autorisation, GroupLayout.PREFERRED_SIZE, 152, GroupLayout.PREFERRED_SIZE)
         				.addComponent(code_autorisation1, GroupLayout.PREFERRED_SIZE, 162, GroupLayout.PREFERRED_SIZE))
-        			.addGap(8)
         			.addGroup(jPanel4Layout.createParallelGroup(Alignment.LEADING)
-        				.addComponent(code_autori, GroupLayout.PREFERRED_SIZE, 152, GroupLayout.PREFERRED_SIZE)
         				.addGroup(jPanel4Layout.createSequentialGroup()
-        					.addGap(10)
-        					.addComponent(method_pyment, GroupLayout.PREFERRED_SIZE, 152, GroupLayout.PREFERRED_SIZE))
-        				.addComponent(date, GroupLayout.PREFERRED_SIZE, 192, GroupLayout.PREFERRED_SIZE))
-        			.addContainerGap(42, Short.MAX_VALUE))
+        					.addGap(18)
+        					.addComponent(date, GroupLayout.PREFERRED_SIZE, 192, GroupLayout.PREFERRED_SIZE))
+        				.addGroup(jPanel4Layout.createSequentialGroup()
+        					.addGap(18)
+        					.addGroup(jPanel4Layout.createParallelGroup(Alignment.TRAILING)
+        						.addComponent(code_autori, GroupLayout.PREFERRED_SIZE, 152, GroupLayout.PREFERRED_SIZE)
+        						.addComponent(method_pyment, GroupLayout.PREFERRED_SIZE, 152, GroupLayout.PREFERRED_SIZE))))
+        			.addContainerGap(87, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
         	jPanel4Layout.createParallelGroup(Alignment.LEADING)
@@ -162,14 +168,14 @@ public class FactureView extends javax.swing.JFrame {
         				.addComponent(jLabel3, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
         				.addComponent(date, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
         			.addPreferredGap(ComponentPlacement.UNRELATED)
-        			.addGroup(jPanel4Layout.createParallelGroup(Alignment.BASELINE)
+        			.addGroup(jPanel4Layout.createParallelGroup(Alignment.LEADING)
         				.addComponent(code_autorisation, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
         				.addComponent(code_autori, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
         			.addPreferredGap(ComponentPlacement.UNRELATED)
         			.addGroup(jPanel4Layout.createParallelGroup(Alignment.BASELINE)
         				.addComponent(code_autorisation1, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
         				.addComponent(method_pyment, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
-        			.addContainerGap(69, Short.MAX_VALUE))
+        			.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4.setLayout(jPanel4Layout);
 
@@ -220,51 +226,51 @@ public class FactureView extends javax.swing.JFrame {
         method_pyment3.setText("");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(code_autorisation5, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(method_pyment3, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(code_autorisation3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(code_autorisation4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tel, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(104, Short.MAX_VALUE))
+        	jPanel5Layout.createParallelGroup(Alignment.LEADING)
+        		.addComponent(jLabel6, GroupLayout.DEFAULT_SIZE, 436, Short.MAX_VALUE)
+        		.addGroup(jPanel5Layout.createSequentialGroup()
+        			.addContainerGap()
+        			.addGroup(jPanel5Layout.createParallelGroup(Alignment.LEADING)
+        				.addGroup(jPanel5Layout.createSequentialGroup()
+        					.addComponent(code_autorisation5, GroupLayout.PREFERRED_SIZE, 152, GroupLayout.PREFERRED_SIZE)
+        					.addGap(18)
+        					.addComponent(method_pyment3, GroupLayout.PREFERRED_SIZE, 152, GroupLayout.PREFERRED_SIZE))
+        				.addGroup(jPanel5Layout.createSequentialGroup()
+        					.addGroup(jPanel5Layout.createParallelGroup(Alignment.LEADING)
+        						.addComponent(jLabel4, GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE)
+        						.addComponent(code_autorisation3, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
+        						.addComponent(code_autorisation4, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE))
+        					.addGap(18)
+        					.addGroup(jPanel5Layout.createParallelGroup(Alignment.LEADING)
+        						.addComponent(tel, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
+        						.addComponent(name, GroupLayout.PREFERRED_SIZE, 152, GroupLayout.PREFERRED_SIZE)
+        						.addComponent(email, GroupLayout.PREFERRED_SIZE, 249, GroupLayout.PREFERRED_SIZE))))
+        			.addContainerGap(89, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(code_autorisation3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(code_autorisation4, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(method_pyment3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(code_autorisation5, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+        	jPanel5Layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(jPanel5Layout.createSequentialGroup()
+        			.addComponent(jLabel6, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
+        			.addPreferredGap(ComponentPlacement.UNRELATED)
+        			.addGroup(jPanel5Layout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(jLabel4, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
+        				.addComponent(name, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
+        			.addPreferredGap(ComponentPlacement.UNRELATED)
+        			.addGroup(jPanel5Layout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(code_autorisation3, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
+        				.addComponent(email, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
+        			.addPreferredGap(ComponentPlacement.RELATED)
+        			.addGroup(jPanel5Layout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(code_autorisation4, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
+        				.addComponent(tel, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
+        			.addGap(18)
+        			.addGroup(jPanel5Layout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(method_pyment3, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
+        				.addComponent(code_autorisation5, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
+        			.addGap(0, 0, Short.MAX_VALUE))
         );
+        jPanel5.setLayout(jPanel5Layout);
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
@@ -276,13 +282,13 @@ public class FactureView extends javax.swing.JFrame {
         jLabel7.setOpaque(true);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel8.setText(" N° De Facture :");
+        jLabel8.setText(" N\u00B0 De Facture :");
 
         num_pay.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         num_pay.setText(""+new Random().nextInt(7000000));
 
         code_autorisation6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        code_autorisation6.setText(" N° De Recu De Paiement :");
+        code_autorisation6.setText(" N\u00B0 De Paiement :");
 
         num_facture.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         num_facture.setText(""+PaymentController.retrieveRefFacture());
@@ -311,41 +317,37 @@ public class FactureView extends javax.swing.JFrame {
         					.addComponent(code_autorisation8, GroupLayout.PREFERRED_SIZE, 152, GroupLayout.PREFERRED_SIZE)
         					.addGap(18)
         					.addComponent(method_pyment5, GroupLayout.PREFERRED_SIZE, 152, GroupLayout.PREFERRED_SIZE)
-        					.addContainerGap(85, Short.MAX_VALUE))
+        					.addContainerGap(613, Short.MAX_VALUE))
         				.addGroup(jPanel6Layout.createSequentialGroup()
         					.addGroup(jPanel6Layout.createParallelGroup(Alignment.LEADING)
         						.addComponent(jLabel8, GroupLayout.PREFERRED_SIZE, 103, GroupLayout.PREFERRED_SIZE)
         						.addComponent(code_autorisation6))
-        					.addGroup(jPanel6Layout.createParallelGroup(Alignment.TRAILING)
-        						.addGroup(jPanel6Layout.createSequentialGroup()
-        							.addPreferredGap(ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-        							.addComponent(num_facture, GroupLayout.PREFERRED_SIZE, 152, GroupLayout.PREFERRED_SIZE)
-        							.addGap(67))
-        						.addGroup(jPanel6Layout.createSequentialGroup()
-        							.addGap(18)
-        							.addComponent(num_pay, GroupLayout.PREFERRED_SIZE, 152, GroupLayout.PREFERRED_SIZE)
-        							.addGap(0, 70, Short.MAX_VALUE))))
-        				.addGroup(jPanel6Layout.createSequentialGroup()
-        					.addComponent(label_price, GroupLayout.PREFERRED_SIZE, 161, GroupLayout.PREFERRED_SIZE)
-        					.addPreferredGap(ComponentPlacement.UNRELATED)
-        					.addComponent(price, GroupLayout.PREFERRED_SIZE, 152, GroupLayout.PREFERRED_SIZE)
-        					.addContainerGap(84, Short.MAX_VALUE))))
-        		.addComponent(jLabel7, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 437, Short.MAX_VALUE)
+        					.addGap(18)
+        					.addGroup(jPanel6Layout.createParallelGroup(Alignment.LEADING)
+        						.addComponent(price, GroupLayout.PREFERRED_SIZE, 152, GroupLayout.PREFERRED_SIZE)
+        						.addComponent(num_pay, GroupLayout.PREFERRED_SIZE, 152, GroupLayout.PREFERRED_SIZE)
+        						.addComponent(num_facture, GroupLayout.PREFERRED_SIZE, 152, GroupLayout.PREFERRED_SIZE))
+        					.addContainerGap(660, Short.MAX_VALUE))
+        				.addComponent(label_price, GroupLayout.PREFERRED_SIZE, 161, GroupLayout.PREFERRED_SIZE)))
+        		.addComponent(jLabel7, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 945, Short.MAX_VALUE)
         );
         jPanel6Layout.setVerticalGroup(
         	jPanel6Layout.createParallelGroup(Alignment.LEADING)
         		.addGroup(jPanel6Layout.createSequentialGroup()
         			.addComponent(jLabel7, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
-        			.addGap(11)
-        			.addGroup(jPanel6Layout.createParallelGroup(Alignment.BASELINE)
-        				.addComponent(jLabel8, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
-        				.addComponent(num_facture, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
-        			.addPreferredGap(ComponentPlacement.UNRELATED)
+        			.addGroup(jPanel6Layout.createParallelGroup(Alignment.LEADING)
+        				.addGroup(jPanel6Layout.createSequentialGroup()
+        					.addGap(11)
+        					.addComponent(jLabel8, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
+        				.addGroup(jPanel6Layout.createSequentialGroup()
+        					.addGap(18)
+        					.addComponent(num_facture, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)))
+        			.addPreferredGap(ComponentPlacement.RELATED)
         			.addGroup(jPanel6Layout.createParallelGroup(Alignment.BASELINE)
         				.addComponent(code_autorisation6, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
         				.addComponent(num_pay, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
         			.addPreferredGap(ComponentPlacement.RELATED)
-        			.addGroup(jPanel6Layout.createParallelGroup(Alignment.LEADING)
+        			.addGroup(jPanel6Layout.createParallelGroup(Alignment.BASELINE)
         				.addComponent(label_price, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
         				.addComponent(price, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
         			.addPreferredGap(ComponentPlacement.UNRELATED)
@@ -356,7 +358,7 @@ public class FactureView extends javax.swing.JFrame {
         );
         jPanel6.setLayout(jPanel6Layout);
 
-        jLabel9.setText("BoukiPay \u00C2\u00A9 Copyright 2021");
+        jLabel9.setText("BoukiPay \u00A9 Copyright 2021");
         
         /*************************
          * Boutton Imprimer 
@@ -429,46 +431,39 @@ public class FactureView extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
         	jPanel3Layout.createParallelGroup(Alignment.LEADING)
         		.addGroup(jPanel3Layout.createSequentialGroup()
-        			.addGap(366)
-        			.addComponent(login_b, GroupLayout.PREFERRED_SIZE, 125, GroupLayout.PREFERRED_SIZE)
-        			.addGap(43)
-        			.addComponent(login_b_1, GroupLayout.PREFERRED_SIZE, 125, GroupLayout.PREFERRED_SIZE)
-        			.addContainerGap(306, Short.MAX_VALUE))
-        		.addGroup(jPanel3Layout.createSequentialGroup()
-        			.addGroup(jPanel3Layout.createParallelGroup(Alignment.TRAILING, false)
-        				.addGroup(Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-        					.addContainerGap()
-        					.addComponent(jPanel6, 0, 0, Short.MAX_VALUE))
-        				.addGroup(Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-        					.addGap(23)
-        					.addComponent(jPanel4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-        			.addGap(46)
+        			.addContainerGap()
+        			.addComponent(jPanel4, GroupLayout.DEFAULT_SIZE, 471, Short.MAX_VALUE)
+        			.addPreferredGap(ComponentPlacement.RELATED)
         			.addComponent(jPanel5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
         			.addGap(42))
-        		.addGroup(Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-        			.addContainerGap(426, Short.MAX_VALUE)
-        			.addComponent(jLabel9, GroupLayout.PREFERRED_SIZE, 185, GroupLayout.PREFERRED_SIZE)
-        			.addGap(354))
+        		.addGroup(jPanel3Layout.createSequentialGroup()
+        			.addGap(361)
+        			.addComponent(login_b, GroupLayout.PREFERRED_SIZE, 125, GroupLayout.PREFERRED_SIZE)
+        			.addGap(28)
+        			.addComponent(login_b_1, GroupLayout.PREFERRED_SIZE, 125, GroupLayout.PREFERRED_SIZE)
+        			.addContainerGap(328, Short.MAX_VALUE))
+        		.addGroup(jPanel3Layout.createSequentialGroup()
+        			.addContainerGap()
+        			.addComponent(jPanel6, 0, 0, Short.MAX_VALUE)
+        			.addContainerGap())
+        		.addComponent(jLabel9, GroupLayout.DEFAULT_SIZE, 967, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
         	jPanel3Layout.createParallelGroup(Alignment.LEADING)
         		.addGroup(jPanel3Layout.createSequentialGroup()
         			.addGap(24)
-        			.addGroup(jPanel3Layout.createParallelGroup(Alignment.LEADING)
-        				.addComponent(jPanel4, GroupLayout.PREFERRED_SIZE, 193, GroupLayout.PREFERRED_SIZE)
-        				.addComponent(jPanel5, GroupLayout.PREFERRED_SIZE, 163, GroupLayout.PREFERRED_SIZE))
-        			.addGap(32)
         			.addGroup(jPanel3Layout.createParallelGroup(Alignment.LEADING, false)
-        				.addGroup(jPanel3Layout.createSequentialGroup()
-        					.addGap(18)
-        					.addComponent(jPanel6, GroupLayout.PREFERRED_SIZE, 153, GroupLayout.PREFERRED_SIZE)
-        					.addGap(39)
-        					.addComponent(login_b, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        				.addGroup(jPanel3Layout.createSequentialGroup()
-        					.addGap(208)
-        					.addComponent(login_b_1, GroupLayout.PREFERRED_SIZE, 41, GroupLayout.PREFERRED_SIZE)))
-        			.addPreferredGap(ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-        			.addComponent(jLabel9, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
+        				.addComponent(jPanel4, 0, 0, Short.MAX_VALUE)
+        				.addComponent(jPanel5, GroupLayout.PREFERRED_SIZE, 163, Short.MAX_VALUE))
+        			.addGap(18)
+        			.addComponent(jPanel6, GroupLayout.PREFERRED_SIZE, 163, GroupLayout.PREFERRED_SIZE)
+        			.addGap(62)
+        			.addGroup(jPanel3Layout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(login_b, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
+        				.addComponent(login_b_1, GroupLayout.PREFERRED_SIZE, 41, GroupLayout.PREFERRED_SIZE))
+        			.addGap(48)
+        			.addComponent(jLabel9, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
+        			.addGap(52))
         );
         jPanel3.setLayout(jPanel3Layout);
 
@@ -505,36 +500,39 @@ public class FactureView extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        	jPanel1Layout.createParallelGroup(Alignment.TRAILING)
+        		.addGroup(jPanel1Layout.createSequentialGroup()
+        			.addContainerGap()
+        			.addComponent(jPanel2, GroupLayout.DEFAULT_SIZE, 947, Short.MAX_VALUE)
+        			.addContainerGap())
+        		.addComponent(jPanel3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        	jPanel1Layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(jPanel1Layout.createSequentialGroup()
+        			.addContainerGap()
+        			.addComponent(jPanel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        			.addPreferredGap(ComponentPlacement.RELATED)
+        			.addComponent(jPanel3, GroupLayout.PREFERRED_SIZE, 576, GroupLayout.PREFERRED_SIZE)
+        			.addContainerGap(71, Short.MAX_VALUE))
         );
+        jPanel1.setLayout(jPanel1Layout);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        	layout.createParallelGroup(Alignment.LEADING)
+        		.addComponent(jPanel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        	layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(layout.createSequentialGroup()
+        			.addComponent(jPanel1, GroupLayout.PREFERRED_SIZE, 693, GroupLayout.PREFERRED_SIZE)
+        			.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+        getContentPane().setLayout(layout);
 
-        setSize(new java.awt.Dimension(993, 700));
+        setSize(new Dimension(993, 722));
         setLocationRelativeTo(null);
     }// </editor-fold>                        
 

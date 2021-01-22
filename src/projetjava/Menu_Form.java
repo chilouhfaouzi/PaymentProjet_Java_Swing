@@ -70,7 +70,7 @@ public class Menu_Form extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Open Sans", 1, 44)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(9, 132, 227));
-        jLabel1.setText("WELCOME");
+        jLabel1.setText("Welcome");
 
         jSeparator1.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -83,11 +83,11 @@ public class Menu_Form extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(284, 284, 284)
+                .addGap(295, 295, 295)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(136, Short.MAX_VALUE))
+                .addContainerGap(159, Short.MAX_VALUE))
             .addComponent(jSeparator1)
         );
         jPanel2Layout.setVerticalGroup(
@@ -115,7 +115,7 @@ public class Menu_Form extends javax.swing.JFrame {
         eau_btn.setText("Eau et électricité");
         eau_btn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         eau_btn.setContentAreaFilled(false);
-        eau_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        eau_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         eau_btn.setFocusPainted(false);
         eau_btn.setFocusable(false);
         eau_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -152,7 +152,7 @@ public class Menu_Form extends javax.swing.JFrame {
         jButton1.setText("Recharge Mobile !");
         jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.setFocusPainted(false);
         jButton1.setFocusable(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -185,7 +185,7 @@ public class Menu_Form extends javax.swing.JFrame {
         jButton2.setText("Assurance");
         jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton2.setContentAreaFilled(false);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.setFocusPainted(false);
         jButton2.setFocusable(false);
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -223,7 +223,7 @@ public class Menu_Form extends javax.swing.JFrame {
         jButton3.setToolTipText("");
         jButton3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton3.setContentAreaFilled(false);
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton3.setFocusPainted(false);
         jButton3.setFocusable(false);
         jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);

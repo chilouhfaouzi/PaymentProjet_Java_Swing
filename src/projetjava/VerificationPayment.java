@@ -20,6 +20,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.awt.Font;
+import java.awt.Dimension;
 
 /**
  *
@@ -54,7 +56,7 @@ public class VerificationPayment extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel3.setBounds(372, 109, 130, 62);
         verification = new javax.swing.JTextField();
-        verification.setBounds(134, 196, 136, 36);
+        verification.setBounds(134, 196, 153, 36);
         btn_verify = new javax.swing.JButton();
         btn_verify.addMouseListener(new MouseAdapter() {
         	@Override
@@ -94,7 +96,7 @@ public class VerificationPayment extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 102, 255));
-        jLabel1.setText("Verification Of Payment");
+        jLabel1.setText("Verification du paiement");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("A  Code has been sent to  your number phone : ");
@@ -129,32 +131,32 @@ public class VerificationPayment extends javax.swing.JFrame {
         btn_verify.setText("Verify code");
         btn_verify.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         
-        JLabel lblNewLabel = new JLabel("BoukiPay \u00C2\u00A9 Copyright 2021");
-        lblNewLabel.setBounds(241, 275, 157, 25);
-        
-        JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-        tabbedPane.setBounds(554, 116, 5, 5);
+        JLabel lblNewLabel = new JLabel("BoukiPay \u00A9 Copyright 2021");
+        lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        lblNewLabel.setFont(new Font("Open Sans", Font.PLAIN, 10));
+        lblNewLabel.setBounds(0, 279, 597, 33);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        	layout.createParallelGroup(Alignment.LEADING)
+        		.addComponent(jPanel1, GroupLayout.DEFAULT_SIZE, 609, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        	layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(layout.createSequentialGroup()
+        			.addComponent(jPanel1, GroupLayout.PREFERRED_SIZE, 322, GroupLayout.PREFERRED_SIZE)
+        			.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+        getContentPane().setLayout(layout);
         jPanel1.setLayout(null);
         jPanel1.add(jLabel2);
         jPanel1.add(jLabel3);
-        jPanel1.add(tabbedPane);
         jPanel1.add(verification);
         jPanel1.add(btn_verify);
         jPanel1.add(jLabel1);
         jPanel1.add(lblNewLabel);
 
-        setSize(new java.awt.Dimension(623, 339));
+        setSize(new Dimension(623, 351));
         setLocationRelativeTo(null);
     }// </editor-fold>                        
 
