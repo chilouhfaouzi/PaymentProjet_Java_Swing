@@ -75,7 +75,7 @@ public class PaymentCardView extends javax.swing.JFrame {
         payer.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		if(card_number.getText().equals("Numero De Payment De Carte") || cvv.getText().equals("CVV")|| ref_facture.getText().equals("Reference De Facture")
-            	   || date.getText().equals("mm-yyyy")) {
+            	   || date.getText().equals("mm-yy")) {
         	        card_number.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(187,33,36)));
         	        date.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(187,33,36)));
         	        cvv.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(187,33,36)));
@@ -83,7 +83,15 @@ public class PaymentCardView extends javax.swing.JFrame {
             			JOptionPane.showMessageDialog(jPanel1,"You have To fill in all the fields","Error",JOptionPane.ERROR_MESSAGE);
             		}else {
             			try {
-							controller.loadNumber(card_number.getText(),cvv.getText(), date.getText(), ref_facture.getText());
+
+                            String[] card_my_number =card_number.getText().split("-");
+                            String finalCard = "";
+                            for (String s:card_my_number
+                                 ) {
+              finalCard +=s;
+                            }
+                            System.out.println(finalCard);
+							controller.loadNumber(finalCard,cvv.getText(), date.getText(), ref_facture.getText());
 						} catch (ClassNotFoundException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
@@ -153,7 +161,7 @@ public class PaymentCardView extends javax.swing.JFrame {
 
         card_number.setFont(new java.awt.Font("Open Sans", 0, 18)); // NOI18N
         card_number.setForeground(new java.awt.Color(149, 165, 166));
-        card_number.setText("Numero De Payment De Carte");
+        card_number.setText("xxxx-xxxx-xxxx-xxxx");
         card_number.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
         card_number.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -212,7 +220,7 @@ public class PaymentCardView extends javax.swing.JFrame {
 
         date.setFont(new java.awt.Font("Open Sans", 0, 16)); // NOI18N
         date.setForeground(new java.awt.Color(149, 165, 166));
-        date.setText("mm-yyyy");
+        date.setText("mm-yy");
         date.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
         date.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -319,10 +327,10 @@ public class PaymentCardView extends javax.swing.JFrame {
         card_number.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         if(card_number.getText().equals("")){
-            card_number.setText("Numero De Payment De Carte");
+            card_number.setText("xxxx-xxxx-xxxx-xxxx");
             card_number.setForeground(new java.awt.Color(149,165,166));
         }
-        if(!card_number.getText().equals("") && !card_number.getText().equals("Numero De Payment De Carte") )
+        if(!card_number.getText().equals("") && !card_number.getText().equals("xxxx-xxxx-xxxx-xxxx") )
         {
         	final String  regex = "((?:(?:\\d{4}[- ]){3}\\d{4}|\\d{16}))(?![\\d])";
  		     Pattern pattern = Pattern.compile(regex);
@@ -412,7 +420,7 @@ public class PaymentCardView extends javax.swing.JFrame {
     }                                           
 
     private void dateFocusGained(java.awt.event.FocusEvent evt) {                                 
-        if(date.getText().equals("mm-yyyy")){
+        if(date.getText().equals("mm-yy")){
             date.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(9,132, 227), 1, true));
 
             date.setText("");
@@ -428,12 +436,12 @@ public class PaymentCardView extends javax.swing.JFrame {
          date.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
          if(date.getText().equals("")){
-            date.setText("mm-yyyy");
+            date.setText("mm-yy");
             date.setForeground(new java.awt.Color(149,165,166));
         }  
-         if(!date.getText().equals("") && !date.getText().equals("mm-yyyy") )
+         if(!date.getText().equals("") && !date.getText().equals("mm-yy") )
          {
-         	final String  regex = "(0?[1-9]|1[0-2])[-]?(?:19|20)[0-9]{2}";
+         	final String  regex = "(0?[1-9]|1[0-2])[-]?(?:2)[0-9]{1}";
   		     Pattern pattern = Pattern.compile(regex);
   		     Matcher matcher = pattern.matcher(date.getText());
              if(!matcher.matches()) {
@@ -451,12 +459,13 @@ public class PaymentCardView extends javax.swing.JFrame {
 
     private void card_numberMouseClicked(java.awt.event.MouseEvent evt) {                                         
         // TODO add your handling code here:
-         if(card_number.getText().equals("Numero De Payment De Carte")){
+         if(card_number.getText().equals("xxxx-xxxx-xxxx-xxxx")){
             card_number.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(9,132, 227), 1, true));
 
             card_number.setText("");
             card_number.setForeground(new java.awt.Color(20, 106, 168));
         }
+
     }                                        
 
     /**

@@ -295,7 +295,7 @@ public class eau_electricite extends javax.swing.JFrame {
 			JOptionPane.showMessageDialog(jPanel1,"You have to write the reference","Error",JOptionPane.ERROR_MESSAGE);
 		}else {
 			try {
-				System.out.println("fuckkkkkkkkkkk"+" "+FactureModel.getPrice());
+				System.out.println(""+" "+FactureModel.getPrice());
 				
 				
 				controller.payerEauElectricite(ref);
