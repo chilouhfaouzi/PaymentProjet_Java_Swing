@@ -97,7 +97,7 @@ public class VerificationPayment extends javax.swing.JFrame {
         jLabel1.setText("Verification Of Payment");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setText("A  Code has been sent to  your number phone ");
+        jLabel2.setText("A  Code has been sent to  your number phone : ");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         

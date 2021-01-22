@@ -14,6 +14,7 @@ import java.awt.print.PageFormat;
 import java.awt.print.Printable;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
+import java.util.Random;
 import java.awt.event.ActionEvent;
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -59,9 +60,7 @@ public class FactureView extends javax.swing.JFrame {
         code_autorisation = new javax.swing.JLabel();
         date = new javax.swing.JLabel();
         code_autorisation1 = new javax.swing.JLabel();
-        code_autorisation2 = new javax.swing.JLabel();
         method_pyment = new javax.swing.JLabel();
-        carte_payment = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -122,20 +121,18 @@ public class FactureView extends javax.swing.JFrame {
         date.setText(""+PaymentController.retrieveDatePyment());
 
         code_autorisation1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        code_autorisation1.setText(" M�thode De Paiement :");
-
-        code_autorisation2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        code_autorisation2.setText(" N° de Carte Paeiment :");
+        code_autorisation1.setText(" Methode De Paiement :");
         /*
          * Method paiement
          ********************/
         method_pyment.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        new my_Session();
+		if(my_Session.getState()==1)
+		{
+	        method_pyment.setText("Compte Bouki");
+
+		}else
         method_pyment.setText("VISA");
-        /*
-         * N� de Carte Paeiment :
-         ********************/
-        carte_payment.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        carte_payment.setText(""+controller.retrieveCardNumber());
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4Layout.setHorizontalGroup(
@@ -146,13 +143,13 @@ public class FactureView extends javax.swing.JFrame {
         			.addGroup(jPanel4Layout.createParallelGroup(Alignment.LEADING)
         				.addComponent(jLabel3, GroupLayout.PREFERRED_SIZE, 130, GroupLayout.PREFERRED_SIZE)
         				.addComponent(code_autorisation, GroupLayout.PREFERRED_SIZE, 152, GroupLayout.PREFERRED_SIZE)
-        				.addComponent(code_autorisation1, GroupLayout.PREFERRED_SIZE, 152, GroupLayout.PREFERRED_SIZE)
-        				.addComponent(code_autorisation2, GroupLayout.PREFERRED_SIZE, 152, GroupLayout.PREFERRED_SIZE))
-        			.addGap(18)
+        				.addComponent(code_autorisation1, GroupLayout.PREFERRED_SIZE, 162, GroupLayout.PREFERRED_SIZE))
+        			.addGap(8)
         			.addGroup(jPanel4Layout.createParallelGroup(Alignment.LEADING)
         				.addComponent(code_autori, GroupLayout.PREFERRED_SIZE, 152, GroupLayout.PREFERRED_SIZE)
-        				.addComponent(method_pyment, GroupLayout.PREFERRED_SIZE, 152, GroupLayout.PREFERRED_SIZE)
-        				.addComponent(carte_payment, GroupLayout.PREFERRED_SIZE, 152, GroupLayout.PREFERRED_SIZE)
+        				.addGroup(jPanel4Layout.createSequentialGroup()
+        					.addGap(10)
+        					.addComponent(method_pyment, GroupLayout.PREFERRED_SIZE, 152, GroupLayout.PREFERRED_SIZE))
         				.addComponent(date, GroupLayout.PREFERRED_SIZE, 192, GroupLayout.PREFERRED_SIZE))
         			.addContainerGap(42, Short.MAX_VALUE))
         );
@@ -170,13 +167,9 @@ public class FactureView extends javax.swing.JFrame {
         				.addComponent(code_autori, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
         			.addPreferredGap(ComponentPlacement.UNRELATED)
         			.addGroup(jPanel4Layout.createParallelGroup(Alignment.BASELINE)
-        				.addComponent(method_pyment, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
-        				.addComponent(code_autorisation1, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
-        			.addPreferredGap(ComponentPlacement.UNRELATED)
-        			.addGroup(jPanel4Layout.createParallelGroup(Alignment.BASELINE)
-        				.addComponent(carte_payment, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
-        				.addComponent(code_autorisation2, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
-        			.addGap(0, 32, Short.MAX_VALUE))
+        				.addComponent(code_autorisation1, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
+        				.addComponent(method_pyment, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
+        			.addContainerGap(69, Short.MAX_VALUE))
         );
         jPanel4.setLayout(jPanel4Layout);
 
@@ -212,7 +205,7 @@ public class FactureView extends javax.swing.JFrame {
         }
 
         code_autorisation4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        code_autorisation4.setText(" N� Tel :");
+        code_autorisation4.setText(" N° Tel :");
 
         code_autorisation5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         code_autorisation5.setText(" N� de Carte Paeiment :");
@@ -283,16 +276,16 @@ public class FactureView extends javax.swing.JFrame {
         jLabel7.setOpaque(true);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel8.setText(" N� De Facture :");
+        jLabel8.setText(" N° De Facture :");
 
         num_pay.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        num_pay.setText(""+controller.retrieveRecuPyment());
+        num_pay.setText(""+new Random().nextInt(7000000));
 
         code_autorisation6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        code_autorisation6.setText(" N� De Recu De Paiement :");
+        code_autorisation6.setText(" N° De Recu De Paiement :");
 
         num_facture.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        num_facture.setText(""+controller.retrieveRefFacture());
+        num_facture.setText(""+PaymentController.retrieveRefFacture());
 
         code_autorisation8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         code_autorisation8.setText(" N� de Carte Paeiment :");
@@ -311,7 +304,6 @@ public class FactureView extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6Layout.setHorizontalGroup(
         	jPanel6Layout.createParallelGroup(Alignment.LEADING)
-        		.addComponent(jLabel7, GroupLayout.DEFAULT_SIZE, 414, Short.MAX_VALUE)
         		.addGroup(jPanel6Layout.createSequentialGroup()
         			.addContainerGap()
         			.addGroup(jPanel6Layout.createParallelGroup(Alignment.LEADING)
@@ -319,32 +311,32 @@ public class FactureView extends javax.swing.JFrame {
         					.addComponent(code_autorisation8, GroupLayout.PREFERRED_SIZE, 152, GroupLayout.PREFERRED_SIZE)
         					.addGap(18)
         					.addComponent(method_pyment5, GroupLayout.PREFERRED_SIZE, 152, GroupLayout.PREFERRED_SIZE)
-        					.addContainerGap(82, Short.MAX_VALUE))
+        					.addContainerGap(85, Short.MAX_VALUE))
         				.addGroup(jPanel6Layout.createSequentialGroup()
         					.addGroup(jPanel6Layout.createParallelGroup(Alignment.LEADING)
         						.addComponent(jLabel8, GroupLayout.PREFERRED_SIZE, 103, GroupLayout.PREFERRED_SIZE)
         						.addComponent(code_autorisation6))
         					.addGroup(jPanel6Layout.createParallelGroup(Alignment.TRAILING)
         						.addGroup(jPanel6Layout.createSequentialGroup()
-        							.addPreferredGap(ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+        							.addPreferredGap(ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
         							.addComponent(num_facture, GroupLayout.PREFERRED_SIZE, 152, GroupLayout.PREFERRED_SIZE)
         							.addGap(67))
         						.addGroup(jPanel6Layout.createSequentialGroup()
         							.addGap(18)
         							.addComponent(num_pay, GroupLayout.PREFERRED_SIZE, 152, GroupLayout.PREFERRED_SIZE)
-        							.addGap(0, 73, Short.MAX_VALUE))))))
-        		.addGroup(jPanel6Layout.createSequentialGroup()
-        			.addContainerGap()
-        			.addComponent(label_price, GroupLayout.PREFERRED_SIZE, 161, GroupLayout.PREFERRED_SIZE)
-        			.addPreferredGap(ComponentPlacement.UNRELATED)
-        			.addComponent(price, GroupLayout.PREFERRED_SIZE, 152, GroupLayout.PREFERRED_SIZE)
-        			.addContainerGap(81, Short.MAX_VALUE))
+        							.addGap(0, 70, Short.MAX_VALUE))))
+        				.addGroup(jPanel6Layout.createSequentialGroup()
+        					.addComponent(label_price, GroupLayout.PREFERRED_SIZE, 161, GroupLayout.PREFERRED_SIZE)
+        					.addPreferredGap(ComponentPlacement.UNRELATED)
+        					.addComponent(price, GroupLayout.PREFERRED_SIZE, 152, GroupLayout.PREFERRED_SIZE)
+        					.addContainerGap(84, Short.MAX_VALUE))))
+        		.addComponent(jLabel7, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 437, Short.MAX_VALUE)
         );
         jPanel6Layout.setVerticalGroup(
         	jPanel6Layout.createParallelGroup(Alignment.LEADING)
         		.addGroup(jPanel6Layout.createSequentialGroup()
         			.addComponent(jLabel7, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
-        			.addPreferredGap(ComponentPlacement.UNRELATED)
+        			.addGap(11)
         			.addGroup(jPanel6Layout.createParallelGroup(Alignment.BASELINE)
         				.addComponent(jLabel8, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
         				.addComponent(num_facture, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
@@ -424,7 +416,8 @@ public class FactureView extends javax.swing.JFrame {
         login_b_1.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		dispose();
-        		new PaymentCardView().setVisible(true);
+        		new Main();
+				Main.main(null);
         	}
         });
         login_b_1.setText("Retour");
@@ -434,7 +427,7 @@ public class FactureView extends javax.swing.JFrame {
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3Layout.setHorizontalGroup(
-        	jPanel3Layout.createParallelGroup(Alignment.TRAILING)
+        	jPanel3Layout.createParallelGroup(Alignment.LEADING)
         		.addGroup(jPanel3Layout.createSequentialGroup()
         			.addGap(366)
         			.addComponent(login_b, GroupLayout.PREFERRED_SIZE, 125, GroupLayout.PREFERRED_SIZE)
@@ -442,30 +435,34 @@ public class FactureView extends javax.swing.JFrame {
         			.addComponent(login_b_1, GroupLayout.PREFERRED_SIZE, 125, GroupLayout.PREFERRED_SIZE)
         			.addContainerGap(306, Short.MAX_VALUE))
         		.addGroup(jPanel3Layout.createSequentialGroup()
-        			.addContainerGap(441, Short.MAX_VALUE)
-        			.addComponent(jLabel9, GroupLayout.PREFERRED_SIZE, 157, GroupLayout.PREFERRED_SIZE)
-        			.addGap(367))
-        		.addGroup(Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-        			.addGap(23)
-        			.addGroup(jPanel3Layout.createParallelGroup(Alignment.TRAILING)
-        				.addComponent(jPanel6, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        				.addComponent(jPanel4, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-        			.addPreferredGap(ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+        			.addGroup(jPanel3Layout.createParallelGroup(Alignment.TRAILING, false)
+        				.addGroup(Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+        					.addContainerGap()
+        					.addComponent(jPanel6, 0, 0, Short.MAX_VALUE))
+        				.addGroup(Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+        					.addGap(23)
+        					.addComponent(jPanel4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+        			.addGap(46)
         			.addComponent(jPanel5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-        			.addGap(32))
+        			.addGap(42))
+        		.addGroup(Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+        			.addContainerGap(426, Short.MAX_VALUE)
+        			.addComponent(jLabel9, GroupLayout.PREFERRED_SIZE, 185, GroupLayout.PREFERRED_SIZE)
+        			.addGap(354))
         );
         jPanel3Layout.setVerticalGroup(
         	jPanel3Layout.createParallelGroup(Alignment.LEADING)
         		.addGroup(jPanel3Layout.createSequentialGroup()
         			.addGap(24)
         			.addGroup(jPanel3Layout.createParallelGroup(Alignment.LEADING)
-        				.addComponent(jPanel5, GroupLayout.PREFERRED_SIZE, 163, GroupLayout.PREFERRED_SIZE)
-        				.addComponent(jPanel4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        				.addComponent(jPanel4, GroupLayout.PREFERRED_SIZE, 193, GroupLayout.PREFERRED_SIZE)
+        				.addComponent(jPanel5, GroupLayout.PREFERRED_SIZE, 163, GroupLayout.PREFERRED_SIZE))
+        			.addGap(32)
         			.addGroup(jPanel3Layout.createParallelGroup(Alignment.LEADING, false)
         				.addGroup(jPanel3Layout.createSequentialGroup()
-        					.addGap(46)
+        					.addGap(18)
         					.addComponent(jPanel6, GroupLayout.PREFERRED_SIZE, 153, GroupLayout.PREFERRED_SIZE)
-        					.addPreferredGap(ComponentPlacement.UNRELATED)
+        					.addGap(39)
         					.addComponent(login_b, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         				.addGroup(jPanel3Layout.createSequentialGroup()
         					.addGap(208)
@@ -581,7 +578,6 @@ public class FactureView extends javax.swing.JFrame {
     private javax.swing.JLabel code_autori;
     private javax.swing.JLabel code_autorisation;
     private javax.swing.JLabel code_autorisation1;
-    private javax.swing.JLabel code_autorisation2;
     private javax.swing.JLabel code_autorisation3;
     private javax.swing.JLabel code_autorisation4;
     private javax.swing.JLabel code_autorisation5;
@@ -606,7 +602,6 @@ public class FactureView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JLabel method_pyment;
-    private javax.swing.JLabel carte_payment;
     private javax.swing.JLabel method_pyment3;
     private javax.swing.JLabel method_pyment5;
     private javax.swing.JLabel name;

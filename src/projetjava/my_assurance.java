@@ -19,9 +19,14 @@ import java.util.logging.Logger;
  * @author faouzi
  */
 public class my_assurance extends javax.swing.JFrame {
-
+   PaymentController controller =new PaymentController(this);
    
-    public my_assurance() {
+    /**
+	 * 
+	 */
+	
+	private static final long serialVersionUID = 1L;
+	public my_assurance() {
         initComponents();
         
         
@@ -261,55 +266,79 @@ public class my_assurance extends javax.swing.JFrame {
     }//GEN-LAST:event_nfactureFocusGained
 
     private void valide_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valide_btnActionPerformed
-        PreparedStatement st ;
-        ResultSet rs;
-        
-        // get the nFacture 
-        String nFacture = nfacture.getText();
-         //create a select query to check if the numero de facture exist in the database
-        String query = "SELECT * FROM `api_factures` WHERE `Ref_fact`=?" ;
-        
-        // show a message if the numero de facture fields are empty
-        if(nFacture.trim().equals("numero_facture"))
-        {
-            JOptionPane.showMessageDialog(null, "Entrer le numero de facture ! ", " numero de Facture est vide ", 2);
-        }
-        
-        else{
-         
-            try {
-            st = ConnectionDB.my_connect().prepareStatement(query);
-            
-            st.setString(1, nFacture);
-            rs = st.executeQuery();
-            
-            if(rs.next())
-            {
-                Date date=new Date();
-                FactureModel.setDate_pyment(date.toString());
-                FactureModel.setNum_facture(nFacture);
-                FactureModel.setPrice(rs.getString("prix"));
-                login_signModal.genereToken();
 
-                VerificationPayment view =new VerificationPayment();
-                view.setVisible(true);
-                
-            }
-            
-            
-            else{
-                // error message
-                JOptionPane.showMessageDialog(null, "Numero de facture n'existe pas ","Valide Error",2);
-            }
-            
-            
-        }   catch (SQLException ex) { 
-                Logger.getLogger(my_assurance.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(my_assurance.class.getName()).log(Level.SEVERE, null, ex);
-            } 
-            
-        }
+    String ref =nfacture.getText();
+    	
+    	
+    	if(nfacture.getText().equals("") || nfacture.getText().equals("Reference de facture"))
+		{
+			JOptionPane.showMessageDialog(jPanel1,"You have to write the reference","Error",JOptionPane.ERROR_MESSAGE);
+		}else {
+			try {
+				
+				controller.payerEauElectricite(ref);
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+		
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	//        PreparedStatement st ;
+//        ResultSet rs;
+//        
+//        // get the nFacture 
+//        String nFacture = nfacture.getText();
+//         //create a select query to check if the numero de facture exist in the database
+//        String query = "SELECT * FROM `api_factures` WHERE `Ref_fact`=?" ;
+//        
+//        // show a message if the numero de facture fields are empty
+//        if(nFacture.trim().equals("numero_facture"))
+//        {
+//            JOptionPane.showMessageDialog(null, "Entrer le numero de facture ! ", " numero de Facture est vide ", 2);
+//        }
+//        
+//        else{
+//         
+//            try {
+//            st = ConnectionDB.my_connect().prepareStatement(query);
+//            
+//            st.setString(1, nFacture);
+//            rs = st.executeQuery();
+//            
+//            if(rs.next())
+//            {
+//                Date date=new Date();
+//                FactureModel.setDate_pyment(date.toString());
+//                FactureModel.setNum_facture(nFacture);
+//                FactureModel.setPrice(rs.getString("prix"));
+//                login_signModal.genereToken();
+//
+//                VerificationPayment view =new VerificationPayment();
+//                view.setVisible(true);
+//                
+//            }
+//            
+//            
+//            else{
+//                // error message
+//                JOptionPane.showMessageDialog(null, "Numero de facture n'existe pas ","Valide Error",2);
+//            }
+//            
+//            
+//        }   catch (SQLException ex) { 
+//                Logger.getLogger(my_assurance.class.getName()).log(Level.SEVERE, null, ex);
+//            } catch (ClassNotFoundException ex) {
+//                Logger.getLogger(my_assurance.class.getName()).log(Level.SEVERE, null, ex);
+//            } 
+//            
+//        }
     }//GEN-LAST:event_valide_btnActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -354,7 +383,16 @@ public class my_assurance extends javax.swing.JFrame {
             }
         });
     }
-
+    // Erroor Message
+    public void setErrorMessage(String errorMessage) {
+        // lblErrorMessage.setText(errorMessage);
+     	JOptionPane.showMessageDialog(jPanel1, errorMessage,"Error",JOptionPane.WARNING_MESSAGE);
+     }
+    
+    public void setSuccesMessage(String succesMessage) {
+        // lblErrorMessage.setText(errorMessage);
+     	JOptionPane.showMessageDialog(jPanel1,succesMessage ,"Succes",JOptionPane.INFORMATION_MESSAGE);
+     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;

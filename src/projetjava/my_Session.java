@@ -10,11 +10,39 @@ public  class  my_Session {
     public static int recharge =0;
 
 
-    public static int getState() {
+    public static String getFullname() {
+		return fullname;
+	}
+
+	public static void setFullname(String fullname) {
+		my_Session.fullname = fullname;
+	}
+
+	public static int getRecharge() {
+		return recharge;
+	}
+
+	public static void setRecharge(int recharge) {
+		my_Session.recharge = recharge;
+	}
+
+	public static String getPhoneStatic() {
+		return phoneStatic;
+	}
+
+	public static int getState() {
         return State;
     }
 
-    public static void setState(int state) {
+    public static String getPhone() {
+		return phoneStatic;
+	}
+
+	public static void setPhoneStatic(String phoneStatic) {
+		my_Session.phoneStatic = phoneStatic;
+	}
+
+	public static void setState(int state) {
         State = state;
     }
 

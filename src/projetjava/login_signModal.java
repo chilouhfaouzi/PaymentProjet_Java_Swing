@@ -266,6 +266,12 @@ public class login_signModal {
       * @author Amine NAFID
       * *******************************/
      
+     /********************************* 
+      * update  the sold
+      * version 1.0
+      * @author Amine NAFID
+      * *******************************/
+     
      public boolean updateSolde(int id_user,float price_fact) throws ClassNotFoundException
  	{
  		try(Connection con = ConnectionDB.my_connect()) {
@@ -291,6 +297,72 @@ public class login_signModal {
         
  		return false;
  	}
+     
+     /********************************* 
+      * update  the sold
+      * version 2.0
+      * @author Amine NAFID
+      * *******************************/
+     
+     public boolean updateSoldeAccount(int id_user,float price_fact) throws ClassNotFoundException
+ 	{
+ 		try(Connection con = ConnectionDB.my_connect()) {
+ 			
+             PreparedStatement sql = con.prepareStatement("UPDATE compte set Solde = ? WHERE id_user = ? ");
+             sql.setFloat(1,solde-price_fact);
+             sql.setInt(2,id_user);
+            
+            if( sql.executeUpdate()>0)
+            {   
+         	   System.out.print("updating succefully");
+
+         	   return true;
+            }else {
+             return false;}
+             
+            
+         } catch (SQLException e) {
+         	 System.out.println("An error occurred. Maybe user/password is invalid");
+              e.printStackTrace();
+         }
+        
+ 		return false;
+ 	}
+     
+     
+     
+     public boolean checkSolde(float price) throws ClassNotFoundException {
+    	 
+    	 try(Connection con = ConnectionDB.my_connect()) {
+  			
+              PreparedStatement sql = con.prepareStatement("SELECT * FROM compte where id_user =?");
+              new my_Session();
+              sql.setInt(1,my_Session.getId());//Integer.parseInt(my_Session.getId())
+              ResultSet rs = sql.executeQuery();
+              if(rs.next()){
+                 
+                  solde=rs.getFloat("Solde");
+
+              }
+             if(price>solde)
+             {
+            	 return false;
+             }else {
+   			  token=new Random().nextInt(10001);
+   			  System.out.println("tkon :"+token);
+
+            	 return true;
+             }
+              
+             
+          } catch (SQLException e) {
+          	 System.out.println("An error occurred. Maybe user/password is invalid");
+               e.printStackTrace();
+          }
+    	 
+    	 return false;
+    	 
+     }
     
    
     

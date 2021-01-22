@@ -13,6 +13,8 @@ import javax.swing.JOptionPane;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -24,7 +26,7 @@ public class eau_electricite extends javax.swing.JFrame {
      * Creates new form eau_electricite
      */
 
-
+  PaymentController controller =new PaymentController(this);
 
     public eau_electricite() {
         initComponents();
@@ -258,6 +260,21 @@ public class eau_electricite extends javax.swing.JFrame {
              nfacture.setText("Reference de facture");
              nfacture.setForeground(new java.awt.Color(149,165,166));
         }
+             
+             
+             if(!nfacture.getText().equals("") && !nfacture.getText().equals("Reference de facture") )
+             {
+            	 final String  regex = "[0-9]+"; 
+
+      		     Pattern pattern = Pattern.compile(regex);
+      		     Matcher matcher = pattern.matcher(nfacture.getText());
+                 if(!matcher.matches()) {
+                	 nfacture.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(187,33,36)));
+
+         			JOptionPane.showMessageDialog(jPanel1,"Tapez un reference de factute valide !","Error",JOptionPane.INFORMATION_MESSAGE);
+
+                 }
+             }
     }//GEN-LAST:event_nfactureFocusLost
 
     private void nfactureFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nfactureFocusGained
@@ -270,56 +287,80 @@ public class eau_electricite extends javax.swing.JFrame {
     }//GEN-LAST:event_nfactureFocusGained
 
     private void valide_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valide_btnActionPerformed
-        PreparedStatement st ;
-        ResultSet rs;
-        
-        // get the nFacture 
-        String nFacture = nfacture.getText();
-         //create a select query to check if the numero de facture exist in the database
-        String query = "SELECT * FROM `api_factures` WHERE `Ref_fact`=?" ;
-        
-        // show a message if the numero de facture fields are empty
-        if(nFacture.trim().equals("numero_facture"))
-        {
-            JOptionPane.showMessageDialog(null, "Entrer le numero de facture ! ", " numero de Facture est vide ", 2);
-        }
-        
-        else{
-         
-            try {
-            st = ConnectionDB.my_connect().prepareStatement(query);
-            
-            st.setString(1, nFacture);
-            rs = st.executeQuery();
-            
-            if(rs.next())
-            {
-                Date date=new Date();
-                FactureModel.setDate_pyment(date.toString());
-                FactureModel.setNum_facture(nFacture);
-                FactureModel.setPrice(rs.getString("prix"));
-               login_signModal.genereToken();
-
-                VerificationPayment view =new VerificationPayment();
-                view.setVisible(true);
-                
-            }
-            
-            
-            else{
-                // error message
-                JOptionPane.showMessageDialog(null, "Numero de facture n'existe pas ","Valide Error",2);
-            }
-            
-            
-        }   catch (SQLException ex) { 
-                Logger.getLogger(eau_electricite.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(eau_electricite.class.getName()).log(Level.SEVERE, null, ex);
-            } 
-            
-        }
-    }//GEN-LAST:event_valide_btnActionPerformed
+    	String ref =nfacture.getText();
+    	
+    	
+    	if(nfacture.getText().equals("") || nfacture.getText().equals("Reference de facture"))
+		{
+			JOptionPane.showMessageDialog(jPanel1,"You have to write the reference","Error",JOptionPane.ERROR_MESSAGE);
+		}else {
+			try {
+				System.out.println("fuckkkkkkkkkkk"+" "+FactureModel.getPrice());
+				
+				
+				controller.payerEauElectricite(ref);
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+		
+	
+    	
+    	
+    	
+    	
+    	
+    	//        PreparedStatement st ;
+//        ResultSet rs;
+//        
+//        // get the nFacture 
+//        String nFacture = nfacture.getText();
+//         //create a select query to check if the numero de facture exist in the database
+//        String query = "SELECT * FROM `api_factures` WHERE `Ref_fact`=?" ;
+//        
+//        // show a message if the numero de facture fields are empty
+//        if(nFacture.trim().equals("numero_facture"))
+//        {
+//            JOptionPane.showMessageDialog(null, "Entrer le numero de facture ! ", " numero de Facture est vide ", 2);
+//        }
+//        
+//        else{
+//         
+//            try {
+//            st = ConnectionDB.my_connect().prepareStatement(query);
+//            
+//            st.setString(1, nFacture);
+//            rs = st.executeQuery();
+//            
+//            if(rs.next())
+//            {
+//                Date date=new Date();
+//                FactureModel.setDate_pyment(date.toString());
+//                FactureModel.setNum_facture(nFacture);
+//                FactureModel.setPrice(rs.getString("prix"));
+//               login_signModal.genereToken();
+//
+//                VerificationPayment view =new VerificationPayment();
+//                view.setVisible(true);
+//                
+//            }
+//            
+//            
+//            else{
+//                // error message
+//                JOptionPane.showMessageDialog(null, "Numero de facture n'existe pas ","Valide Error",2);
+//            }
+//            
+//            
+//        }   catch (SQLException ex) { 
+//                Logger.getLogger(eau_electricite.class.getName()).log(Level.SEVERE, null, ex);
+//            } catch (ClassNotFoundException ex) {
+//                Logger.getLogger(eau_electricite.class.getName()).log(Level.SEVERE, null, ex);
+//            } 
+//            
+//        }
+        }//GEN-LAST:event_valide_btnActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Menu_Form menu =new Menu_Form();
@@ -362,6 +403,19 @@ public class eau_electricite extends javax.swing.JFrame {
             }
         });
     }
+    
+    // Erroor Message
+    public void setErrorMessage(String errorMessage) {
+        // lblErrorMessage.setText(errorMessage);
+     	JOptionPane.showMessageDialog(jPanel1, errorMessage,"Error",JOptionPane.WARNING_MESSAGE);
+     }
+    
+    public void setSuccesMessage(String succesMessage) {
+        // lblErrorMessage.setText(errorMessage);
+     	JOptionPane.showMessageDialog(jPanel1,succesMessage ,"Succes",JOptionPane.INFORMATION_MESSAGE);
+     }
+    // Erroor Message
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;

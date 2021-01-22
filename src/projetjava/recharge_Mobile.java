@@ -5,6 +5,13 @@
  */
 package projetjava;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import javax.swing.JOptionPane;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
 /**
  *
  * @author hakim
@@ -12,11 +19,18 @@ package projetjava;
 public class recharge_Mobile extends javax.swing.JFrame {
 
     /**
+	 * initialize controller
+	 */
+	PaymentController controller= new PaymentController(this);
+
+	private static final long serialVersionUID = 1L;
+	/**
      * Creates new form recharge_Mobile
      */
     public recharge_Mobile() {
         initComponents();
     }
+    
     public void turn_off(){
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -44,13 +58,30 @@ public class recharge_Mobile extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel5 = new javax.swing.JLabel();
         nTele = new javax.swing.JTextField();
         montant = new javax.swing.JComboBox<>();
         type_recharge = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        rechargeButton = new javax.swing.JButton();
+        rechargeButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		if(nTele.getText().equals("") || nTele.getText().equals("(06 (7) XX XX XX)"))
+        		{
+        			JOptionPane.showMessageDialog(jPanel1,"You have to write your number","Error",JOptionPane.ERROR_MESSAGE);
+        		}else {
+        			try {
+        				String[] montantstr=montant.getSelectedItem().toString().split(" DH");
+        				
+						controller.payerRecharge(Integer.parseInt(montantstr[0]));
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+        		}
+        		
+        	}
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,22 +96,12 @@ public class recharge_Mobile extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Recharge Mobile ");
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetjava/back.png"))); // NOI18N
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 199, Short.MAX_VALUE)
+                .addContainerGap(291, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(270, 270, 270))
         );
@@ -89,10 +110,7 @@ public class recharge_Mobile extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         jSeparator1.setBackground(new java.awt.Color(112, 161, 255));
@@ -103,7 +121,6 @@ public class recharge_Mobile extends javax.swing.JFrame {
         nTele.setFont(new java.awt.Font("Open Sans", 1, 16)); // NOI18N
         nTele.setForeground(new java.awt.Color(153, 153, 153));
         nTele.setText("(06 (7) XX XX XX)");
-        nTele.setToolTipText("");
         nTele.setPreferredSize(new java.awt.Dimension(84, 28));
         nTele.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -137,14 +154,14 @@ public class recharge_Mobile extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(0, 84, 140));
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Recharger");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton1.setMaximumSize(new java.awt.Dimension(93, 37));
-        jButton1.setMinimumSize(new java.awt.Dimension(93, 37));
-        jButton1.setPreferredSize(new java.awt.Dimension(93, 37));
+        rechargeButton.setBackground(new java.awt.Color(0, 84, 140));
+        rechargeButton.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        rechargeButton.setForeground(new java.awt.Color(255, 255, 255));
+        rechargeButton.setText("Recharger");
+        rechargeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        rechargeButton.setMaximumSize(new java.awt.Dimension(93, 37));
+        rechargeButton.setMinimumSize(new java.awt.Dimension(93, 37));
+        rechargeButton.setPreferredSize(new java.awt.Dimension(93, 37));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -162,7 +179,7 @@ public class recharge_Mobile extends javax.swing.JFrame {
                 .addGap(120, 120, 120))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(367, 367, 367)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(rechargeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -180,8 +197,8 @@ public class recharge_Mobile extends javax.swing.JFrame {
                 .addGap(35, 35, 35)
                 .addComponent(type_recharge, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addComponent(rechargeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(85, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -218,7 +235,9 @@ public class recharge_Mobile extends javax.swing.JFrame {
     }//GEN-LAST:event_nTeleActionPerformed
 
     private void nTeleFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nTeleFocusGained
-        if(nTele.getText().equals("(06 (7) XX XX XX)")){
+		nTele.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(9,132, 227), 1, true));
+
+    	if(nTele.getText().equals("(06 (7) XX XX XX)")){
 
             nTele.setText("");
             nTele.setForeground(new java.awt.Color(20, 106, 168));
@@ -227,20 +246,27 @@ public class recharge_Mobile extends javax.swing.JFrame {
 
     private void nTeleFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nTeleFocusLost
          if(nTele.getText().equals("")){
-             nTele.setText("(06 XX XX XX)");
+             nTele.setText("(06 (7) XX XX XX)");
              nTele.setForeground(new java.awt.Color(149,165,166));
         }
+         if(!nTele.getText().equals("") && !nTele.getText().equals("(06 (7) XX XX XX)") )
+         {
+        	 final String  regex = "^(06|07)[0-9]{8}$"; 
+
+  		     Pattern pattern = Pattern.compile(regex);
+  		     Matcher matcher = pattern.matcher(nTele.getText());
+             if(!matcher.matches()) {
+            	 nTele.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(187,33,36)));
+
+     			JOptionPane.showMessageDialog(jPanel1,"NUMBER PHONE NOT VALIDE","Error",JOptionPane.INFORMATION_MESSAGE);
+
+             }
+         }
     }//GEN-LAST:event_nTeleFocusLost
 
     private void type_rechargeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_type_rechargeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_type_rechargeActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       Menu_Form menu =new Menu_Form();
-       menu.turn_on();
-       this.turn_off();
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -276,10 +302,20 @@ public class recharge_Mobile extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void setErrorMessage(String errorMessage) {
+        // lblErrorMessage.setText(errorMessage);
+     	JOptionPane.showMessageDialog(jPanel1, errorMessage,"Error",JOptionPane.WARNING_MESSAGE);
+     }
+    
+    public void setSuccesMessage(String succesMessage) {
+        // lblErrorMessage.setText(errorMessage);
+     	JOptionPane.showMessageDialog(jPanel1,succesMessage ,"Succes",JOptionPane.INFORMATION_MESSAGE);
+     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton rechargeButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;

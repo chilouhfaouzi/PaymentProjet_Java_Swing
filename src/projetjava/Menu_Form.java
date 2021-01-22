@@ -103,7 +103,7 @@ public class Menu_Form extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(9, 132, 227));
-        jLabel8.setText("username");
+        jLabel8.setText(my_Session.getFullname());
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -337,9 +337,11 @@ public class Menu_Form extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
                // show a new form
+    	        new my_Session();
+    	        my_Session.setRecharge(1);
                 recharge_Mobile mobile = new recharge_Mobile();
                 mobile.turn_on();
-                this.turn_off();
+                
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void eau_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eau_btnActionPerformed

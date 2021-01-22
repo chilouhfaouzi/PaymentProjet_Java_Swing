@@ -11,6 +11,12 @@ public class PaymentController {
 	PaymentCardView card_view ;
     VerificationPayment verifiy_view;
     FactureView facture_view;
+    recharge_Mobile recharge;
+    eau_electricite eau_elec;
+    my_assurance assurance;
+    autre_factures autrefact;
+
+
 
     static login_signModal lgmodal;
     static FactureModel  FcModel;
@@ -37,6 +43,51 @@ public class PaymentController {
 		FcModel =new FactureModel();
 
 	}
+    
+    public PaymentController(recharge_Mobile recharge) {
+		super();
+	
+		FcModel =new FactureModel();
+		this.recharge= recharge;
+		lgmodal=new login_signModal();
+		new my_Session();
+		lgmodal.setPhone(my_Session.getPhone());
+		
+	}
+    
+    public PaymentController( eau_electricite eau_elec) {
+		super();
+	
+		FcModel =new FactureModel();
+		this.eau_elec= eau_elec;
+		lgmodal=new login_signModal();
+		new my_Session();
+		lgmodal.setPhone(my_Session.getPhone());
+		
+	}
+    public PaymentController( autre_factures autre_fact) {
+		super();
+	
+		FcModel =new FactureModel();
+		this.autrefact= autre_fact;
+		lgmodal=new login_signModal();
+		new my_Session();
+		lgmodal.setPhone(my_Session.getPhone());
+		
+	}
+    
+    public PaymentController( my_assurance assurance) {
+		super();
+	
+		FcModel =new FactureModel();
+		this.assurance= assurance;
+		lgmodal=new login_signModal();
+		new my_Session();
+		lgmodal.setPhone(my_Session.getPhone());
+		
+	}
+    
+    
     
    
     
@@ -123,7 +174,7 @@ public class PaymentController {
 
     	}else if(!FcModel.checkBillReference(ref)) {
     		
-    		card_view.setErrorMessage("R�f�rence De facture n'est pas valide !.");
+    		card_view.setErrorMessage("Référence De facture n'est pas valide !.");
 
     	}else if(Float.parseFloat(FactureModel.getPrice())>lgmodal.getSolde()) {
     		
@@ -163,17 +214,90 @@ public class PaymentController {
     	}else {
 
     		verifiy_view.setSuccesMessage("The Payment has been done succesfully");
+    		new my_Session();
+			if(my_Session.getState()==1)
+    		{
+	    		lgmodal.updateSoldeAccount(my_Session.getId(),Float.parseFloat(FactureModel.getPrice()));
+
+    		}else
+    		lgmodal.updateSolde(lgmodal.getId(), Float.parseFloat(FactureModel.getPrice()));
+
+    		    		
     		if(my_Session.recharge==0){
 				new FactureView().setVisible(true);
+				
 			}
     		else{
     			new RechargeFactureView().setVisible(true);
 			}
-
     		return true;
-    		    		
     	}
+    	
     }
+    
+    /********************************************
+     *  
+     * method payRechrge
+     * @throws Exception 
+     * version 1.0
+     ***********************************************/ 
+    
+    public void payerRecharge(float price) throws Exception {
+    	 if(!lgmodal.checkSolde(price)) {
+    		
+    		recharge.setErrorMessage("Votre Solde est inssifusant !");
+
+    	}else {
+
+    			Date date=new Date();
+    			// set date of payment
+    			FactureModel.setDate_pyment(date.toString());
+    			FactureModel.setPrice(""+price);;
+
+                //generate the Verification window
+    			VerificationPayment view =new VerificationPayment();
+                view.setVisible(true);
+    	}
+
+    }
+    
+    /********************************************
+     *  
+     * method payer facture eau et electricité
+     * @throws Exception 
+     * version 1.0
+     ***********************************************/ 
+    
+    public void payerEauElectricite(String ref) throws Exception {
+          if(!FcModel.checkBillReference(ref)) {
+    		
+        	  if(this.eau_elec!=null) {
+      			
+          		eau_elec.setErrorMessage("Cette Reference n'existe pas!.");}
+          		else if(this.assurance!=null) {
+          			System.out.print("grrrrrrrr");
+              		assurance.setErrorMessage("Cette Reference n'existe pas!");
+              		}
+          		else
+              		autrefact.setErrorMessage("Cette Reference n'existe pas!");
+
+    	}else if(!lgmodal.checkSolde(Float.parseFloat(FactureModel.getPrice()))) {
+    		
+    		eau_elec.setErrorMessage("Votre Solde est inssifusant !");
+
+    	}else {
+
+    			Date date=new Date();
+    			// set date of payment
+    			FactureModel.setDate_pyment(date.toString());
+
+                //generate the Verification window
+    			VerificationPayment view =new VerificationPayment();
+                view.setVisible(true);
+    	}
+
+    }
+   
     
     /*************************************************
      * 
@@ -201,6 +325,8 @@ public class PaymentController {
 	public void setLgmodal(login_signModal lgmodal) {
 		this.lgmodal = lgmodal;
 	}
+	
+	
     
    
     

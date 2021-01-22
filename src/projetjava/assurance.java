@@ -7,6 +7,7 @@ package projetjava;
 
 import java.awt.Color;
 import javax.swing.ButtonGroup;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -1109,6 +1110,17 @@ public class assurance extends javax.swing.JFrame {
             }
         });
     }
+    
+    // Erroor Message
+    public void setErrorMessage(String errorMessage) {
+        // lblErrorMessage.setText(errorMessage);
+     	JOptionPane.showMessageDialog(jPanel1, errorMessage,"Error",JOptionPane.WARNING_MESSAGE);
+     }
+    
+    public void setSuccesMessage(String succesMessage) {
+        // lblErrorMessage.setText(errorMessage);
+     	JOptionPane.showMessageDialog(jPanel1,succesMessage ,"Succes",JOptionPane.INFORMATION_MESSAGE);
+     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
