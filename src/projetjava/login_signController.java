@@ -68,10 +68,9 @@ public class login_signController implements ActionListener {
                 classNotFoundException.printStackTrace();
             }
             if (testRegister ) {
-                testFrame testFr = new testFrame();
-
-                testFr.my_run();
-                lgvue.turn_off();
+                JOptionPane.showMessageDialog(getLgvue(),"Merci de votre registration ! Bienvenue Sur BoukiPay!");
+                lgvue.getSign_page().setVisible(false);
+                lgvue.getLogin_page().setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(getLgvue(),"Oopps! Veuillez remplir tous les champs avec des valeurs valides !");
                 System.out.println("cant");

@@ -18,6 +18,8 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
 import java.awt.Dimension;
+import java.awt.Font;
+import javax.swing.UIManager;
 
 /**
  *
@@ -59,6 +61,7 @@ public class PaymentCardView extends javax.swing.JFrame {
         p_container = new javax.swing.JPanel();
         p_header = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel1.setForeground(UIManager.getColor("TextArea.selectionBackground"));
         p_card = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         card_number = new javax.swing.JTextField();
@@ -123,7 +126,7 @@ public class PaymentCardView extends javax.swing.JFrame {
 
         p_header.setBackground(new java.awt.Color(236, 243, 251));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setFont(new Font("Open Sans Semibold", Font.BOLD, 27)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("BOUKIPAY");
         
@@ -134,20 +137,19 @@ public class PaymentCardView extends javax.swing.JFrame {
         p_headerLayout.setHorizontalGroup(
         	p_headerLayout.createParallelGroup(Alignment.LEADING)
         		.addGroup(p_headerLayout.createSequentialGroup()
-        			.addGap(363)
-        			.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
-        			.addPreferredGap(ComponentPlacement.UNRELATED)
+        			.addGap(351)
         			.addComponent(jLabel1, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
-        			.addContainerGap(396, Short.MAX_VALUE))
+        			.addPreferredGap(ComponentPlacement.RELATED)
+        			.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
+        			.addContainerGap(417, Short.MAX_VALUE))
         );
         p_headerLayout.setVerticalGroup(
-        	p_headerLayout.createParallelGroup(Alignment.LEADING)
+        	p_headerLayout.createParallelGroup(Alignment.TRAILING)
         		.addGroup(p_headerLayout.createSequentialGroup()
+        			.addContainerGap()
         			.addGroup(p_headerLayout.createParallelGroup(Alignment.TRAILING)
-        				.addGroup(p_headerLayout.createSequentialGroup()
-        					.addContainerGap()
-        					.addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE))
-        				.addComponent(jLabel1, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 76, GroupLayout.PREFERRED_SIZE))
+        				.addComponent(jLabel1, GroupLayout.PREFERRED_SIZE, 76, GroupLayout.PREFERRED_SIZE)
+        				.addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE))
         			.addContainerGap())
         );
         p_header.setLayout(p_headerLayout);
